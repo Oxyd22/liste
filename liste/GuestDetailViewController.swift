@@ -10,6 +10,7 @@ import UIKit
 
 class GuestDetailViewController: UIViewController, UITextFieldDelegate {
     var guest: Gast!
+    var delegate: MasterViewDataSetter!
     
     @IBOutlet weak var nameTextField: UITextField!
     
@@ -32,6 +33,7 @@ class GuestDetailViewController: UIViewController, UITextFieldDelegate {
         if let text = textField.text {
             let guest = Gast(name: text)
             self.guest = guest
+            delegate.newGuestOnTable(guest: guest)
         }
     }
     

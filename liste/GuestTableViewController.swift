@@ -9,13 +9,12 @@
 import UIKit
 
 protocol MasterViewDataSetter {
-    var tisch: Tisch { get set }
+    var tisch: Tisch! { get set }
     func newGuestOnTable(guest: Gast)
 }
 
 class GuestTableViewController: UITableViewController, MasterViewDataSetter {
     var tisch: Tisch!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,25 +93,26 @@ class GuestTableViewController: UITableViewController, MasterViewDataSetter {
     
     func newGuestOnTable(guest: Gast) {
         tisch.addGast(gast: guest)
-        
-        tableView.insertRows(at: <#T##[IndexPath]#>, with: <#T##UITableViewRowAnimation#>)
+        let count = tisch.gäste.count - 1
+        let indexPath = IndexPath(row: count, section: 0)
+        tableView.beginUpdates()
+        tableView.insertRows(at: [indexPath], with: .automatic)
+        tableView.endUpdates()
     }
-    
-    
-    @IBAction func addGuestButton(_ sender: UIBarButtonItem) {
-        
-        
-        
-    }
-    
     
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! GuestDetailViewController
-        if let indexPath = tableView.indexPathForSelectedRow {
-            destination.guest = tisch.gäste[indexPath.row]
+        destination.delegate = self
+        if segue.identifier == "AddGuestSegue" {
+            
+        }
+        if segue.identifier == "ShowDetailSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                destination.guest = tisch.gäste[indexPath.row]
+            }
         }
     }
     

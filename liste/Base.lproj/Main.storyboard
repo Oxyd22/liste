@@ -23,9 +23,12 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lod-83-gPX" id="Fbe-bw-tnO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Qrb-wa-rgl" kind="show" identifier="ShowDetailSegue" id="ft5-gh-PM7"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -37,7 +40,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="x5K-Ia-MZZ">
                             <connections>
                                 <action selector="addGuestButton:" destination="1XM-kM-DJH" id="RT0-Jb-AtA"/>
-                                <segue destination="Qrb-wa-rgl" kind="show" id="w2f-Jb-x9e"/>
+                                <segue destination="Qrb-wa-rgl" kind="show" identifier="AddGuestSegue" id="w2f-Jb-x9e"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -74,14 +77,40 @@
                                     <constraint firstAttribute="height" constant="100" id="5xP-71-jnY"/>
                                 </constraints>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tpY-8M-tzb">
+                                <rect key="frame" x="0.0" y="222" width="375" height="396"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gR9-GN-bsv">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gR9-GN-bsv" id="zC3-1g-bd8">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bestellungen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9HM-1S-lMX">
+                                <rect key="frame" x="137" y="193" width="100" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="tpY-8M-tzb" firstAttribute="leading" secondItem="nkS-Gl-x3V" secondAttribute="leading" id="9kt-7L-2R9"/>
                             <constraint firstItem="5TE-s9-Gzb" firstAttribute="trailing" secondItem="nkS-Gl-x3V" secondAttribute="trailingMargin" id="Ckh-z5-Qja"/>
+                            <constraint firstAttribute="trailing" secondItem="tpY-8M-tzb" secondAttribute="trailing" id="E24-nW-gft"/>
+                            <constraint firstItem="9HM-1S-lMX" firstAttribute="centerX" secondItem="nkS-Gl-x3V" secondAttribute="centerX" id="HoV-HW-tKw"/>
                             <constraint firstItem="95I-N3-lXE" firstAttribute="leading" secondItem="nkS-Gl-x3V" secondAttribute="leadingMargin" id="Jyj-ll-bNj"/>
+                            <constraint firstItem="Pqc-lD-VeS" firstAttribute="top" secondItem="tpY-8M-tzb" secondAttribute="bottom" id="KEK-Ya-zH5"/>
                             <constraint firstItem="5TE-s9-Gzb" firstAttribute="centerY" secondItem="95I-N3-lXE" secondAttribute="centerY" id="LBt-Ex-AwY"/>
                             <constraint firstItem="95I-N3-lXE" firstAttribute="top" secondItem="xXa-tg-wsz" secondAttribute="bottom" constant="8" id="PJo-MV-VY8"/>
+                            <constraint firstItem="tpY-8M-tzb" firstAttribute="top" secondItem="9HM-1S-lMX" secondAttribute="bottom" constant="8" id="eVH-z1-Sm8"/>
                             <constraint firstItem="5TE-s9-Gzb" firstAttribute="leading" secondItem="95I-N3-lXE" secondAttribute="trailing" constant="8" id="nE3-XT-Bir"/>
+                            <constraint firstItem="9HM-1S-lMX" firstAttribute="top" secondItem="95I-N3-lXE" secondAttribute="bottom" constant="21" id="y0a-va-NNb"/>
                         </constraints>
                     </view>
                     <connections>
@@ -231,4 +260,7 @@
     <resources>
         <image name="Guest" width="40" height="40"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ft5-gh-PM7"/>
+    </inferredMetricsTieBreakers>
 </document>

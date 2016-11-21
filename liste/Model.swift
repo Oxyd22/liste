@@ -43,7 +43,7 @@ extension Berechenbar {
 }
 
 class Gast {
-    let name:String
+    let name: String
     var bestellungen: [Bestellung]
     var rechnung: Rechnung {
         let rechnung = Rechnung(bestellungen: bestellungen)
