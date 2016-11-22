@@ -18,9 +18,12 @@ class BillViewController: UIViewController {
         // Do any additional setup after loading the view.
         let rootTabBarViewController = self.tabBarController as! RootTabBarViewController
         self.tisch = rootTabBarViewController.tisch
-        billTextView.text = tisch.rechnung.billPrint()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        billTextView.text = tisch.rechnung.billPrint()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

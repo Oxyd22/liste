@@ -8,24 +8,24 @@
 
 import UIKit
 
-protocol MasterViewDataSetter {
-    var tisch: Tisch! { get set }
-    func newGuestOnTable(guest: Gast)
-}
 
-class GuestTableViewController: UITableViewController, MasterViewDataSetter {
+class GuestTableViewController: UITableViewController {
     var tisch: Tisch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        //         self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         let rootTabBarViewController = self.tabBarController as! RootTabBarViewController
         self.tisch = rootTabBarViewController.tisch
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,6 +54,29 @@ class GuestTableViewController: UITableViewController, MasterViewDataSetter {
         return cell
     }
     
+    func newGuestOnTable(guest: Gast) {
+        tisch.addGast(gast: guest)
+        let count = tisch.gäste.count - 1
+        let indexPath = IndexPath(row: count, section: 0)
+        tableView.beginUpdates()
+        tableView.insertRows(at: [indexPath], with: .automatic)
+        tableView.endUpdates()
+    }
+    
+    @IBAction func addGuestButton(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Name des Gastes", message: "Geben Sie den namen des Gastes ein.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            let textField = alert.textFields!.first
+            if let text = textField?.text, text != "" {
+                let gast = Gast(name: text)
+                self.newGuestOnTable(guest: gast)
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     /*
      // Override to support conditional editing of the table view.
@@ -91,24 +114,11 @@ class GuestTableViewController: UITableViewController, MasterViewDataSetter {
      }
      */
     
-    func newGuestOnTable(guest: Gast) {
-        tisch.addGast(gast: guest)
-        let count = tisch.gäste.count - 1
-        let indexPath = IndexPath(row: count, section: 0)
-        tableView.beginUpdates()
-        tableView.insertRows(at: [indexPath], with: .automatic)
-        tableView.endUpdates()
-    }
-    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! GuestDetailViewController
-        destination.delegate = self
-        if segue.identifier == "AddGuestSegue" {
-            
-        }
         if segue.identifier == "ShowDetailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 destination.guest = tisch.gäste[indexPath.row]

@@ -167,7 +167,6 @@ struct Rechnung: Berechenbar {
         addTableRow([(summe, true)])
         addTableRow([(trinkgeld, true)])
         billTable.append(tableBorderLine)
-        print(billTable)
         return billTable
     }
     
