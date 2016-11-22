@@ -28,8 +28,14 @@ class GuestDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func addOrderButton(_ sender: UIButton) {
-        guest.bestellen(name: "Pizza", preiss: 6.5)
+    func newOrderForGuest(name: String, price: String) {
+        guard name != "", price != "" else {
+            return
+        }
+        guard let priceNumber = Double(price) else {
+            return
+        }
+        guest.bestellen(name: name, preiss: priceNumber)
         let count = guest.bestellungen.count - 1
         let indexPath = IndexPath(row: count, section: 0)
         tableView.beginUpdates()
@@ -37,6 +43,23 @@ class GuestDetailViewController: UIViewController {
         tableView.endUpdates()
     }
     
+    @IBAction func addOrderButton(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Bestellung hinzufügen", message: "Geben Sie Name und Preiss des Artikels ein.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Name"
+        }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Preiss"
+            textField.keyboardType = .decimalPad
+        }
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            let nameTextField = alertController.textFields![0] as UITextField
+            let priceTextField = alertController.textFields![1] as UITextField
+            self.newOrderForGuest(name: nameTextField.text!, price: priceTextField.text!)
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true)
+    }
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -63,11 +86,22 @@ extension GuestDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "guestDetailIdentifier", for: indexPath)
-        
-        cell.textLabel?.text = guest.bestellungen[indexPath.row].artikel.name
+        let name = guest.bestellungen[indexPath.row].artikel.name
+        let price = guest.bestellungen[indexPath.row].artikel.preiss
+        cell.textLabel?.text = "\(name) - \(price)"
         
         return cell
     }
-    
-    
+}
+
+extension GuestDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            guest.bestellungen.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
 }

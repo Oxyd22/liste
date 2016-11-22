@@ -19,7 +19,7 @@ class GuestTableViewController: UITableViewController {
         //         self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
+        //        self.navigationItem.leftBarButtonItem = self.editButtonItem
         let rootTabBarViewController = self.tabBarController as! RootTabBarViewController
         self.tisch = rootTabBarViewController.tisch
     }
@@ -54,28 +54,28 @@ class GuestTableViewController: UITableViewController {
         return cell
     }
     
-    func newGuestOnTable(guest: Gast) {
-        tisch.addGast(gast: guest)
-        let count = tisch.gäste.count - 1
-        let indexPath = IndexPath(row: count, section: 0)
-        tableView.beginUpdates()
-        tableView.insertRows(at: [indexPath], with: .automatic)
-        tableView.endUpdates()
+    func newGuestOnTable(name: String) {
+        if name != "" {
+            tisch.addGast(name: name)
+            let count = tisch.gäste.count - 1
+            let indexPath = IndexPath(row: count, section: 0)
+            tableView.beginUpdates()
+            tableView.insertRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+        }
     }
     
     @IBAction func addGuestButton(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Name des Gastes", message: "Geben Sie den namen des Gastes ein.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addTextField { (textField) in
-            textField.text = ""
+        let alertController = UIAlertController(title: "Gast hinzufügen", message: "Geben Sie den Namen des Gastes ein.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Name"
         }
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            let textField = alert.textFields!.first
-            if let text = textField?.text, text != "" {
-                let gast = Gast(name: text)
-                self.newGuestOnTable(guest: gast)
-            }
-        }))
-        self.present(alert, animated: true, completion: nil)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            let nameTextField = alertController.textFields![0] as UITextField
+            self.newGuestOnTable(name: nameTextField.text!)
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true)
     }
     
     /*
