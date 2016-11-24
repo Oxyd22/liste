@@ -11,6 +11,7 @@ import UIKit
 
 class GuestTableViewController: UITableViewController {
     var tisch: Tisch!
+    @IBOutlet weak var summLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +27,17 @@ class GuestTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        displaySummForAllOrders()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func displaySummForAllOrders() {
+        let summ = tisch.rechnung.summeBestellungen()
+        summLabel.text = CurrencyFormater.getCurrencyString(number: summ)
     }
     
     // MARK: - Table view data source
@@ -48,8 +55,11 @@ class GuestTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "guestCellIdentifier", for: indexPath)
-        
-        cell.textLabel?.text = tisch.gäste[indexPath.row].name
+        let guest = tisch.gäste[indexPath.row]
+        let name = guest.name
+        let summe = guest.rechnung.summeBestellungen()
+        cell.textLabel?.text = name
+        cell.detailTextLabel?.text = CurrencyFormater.getCurrencyString(number: summe)
         
         return cell
     }

@@ -50,7 +50,8 @@ class OrdersTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCellIdentifier", for: indexPath)
         
         let bestellung = tisch.rechnung.bestellungen[indexPath.row]
-        cell.textLabel?.text = "\(bestellung.artikel.name): \(bestellung.artikel.preiss) - \(bestellung.gast.name)"
+        let preiss = CurrencyFormater.getCurrencyString(number: bestellung.artikel.preiss)
+        cell.textLabel?.text = "\(bestellung.artikel.name): \(preiss) - \(bestellung.gast.name)"
         
         return cell
     }
@@ -99,7 +100,7 @@ class OrdersTableViewController: UITableViewController {
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! OrderDetailsViewController
         if segue.identifier == "orderDetailSegue" {
-            if let indexPath = tableView.indexPathForSelectedRow {
+            if tableView.indexPathForSelectedRow != nil {
                 
             }
             destination.tisch = tisch

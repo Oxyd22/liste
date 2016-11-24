@@ -21,7 +21,13 @@ class BillViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        billTextView.text = tisch.rechnung.billPrint()
+        var bill = ""
+bill = tisch.rechnung.billPrint()
+        for gast in tisch.gäste {
+            let text = gast.rechnung.billPrint()
+            bill.append(text)
+        }
+        billTextView.text = bill
     }
     
     override func didReceiveMemoryWarning() {

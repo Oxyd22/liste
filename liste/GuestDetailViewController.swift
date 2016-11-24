@@ -12,14 +12,14 @@ class GuestDetailViewController: UIViewController {
     var guest: Gast!
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var sumLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        if let guest = guest {
-            nameTextField.text = guest.name
-        }
+        nameTextField.text = guest.name
+        displaySummForAllOrders()
         automaticallyAdjustsScrollViewInsets = false
     }
     
@@ -28,14 +28,18 @@ class GuestDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func displaySummForAllOrders() {
+        let summ = guest.rechnung.summeBestellungen()
+        sumLabel.text = CurrencyFormater.getCurrencyString(number: summ)
+    }
+    
     func newOrderForGuest(name: String, price: String) {
         guard name != "", price != "" else {
             return
         }
-        guard let priceNumber = Double(price) else {
-            return
-        }
+        let priceNumber = CurrencyFormater.getDoubleValue(currencyString: price)
         guest.bestellen(name: name, preiss: priceNumber)
+        displaySummForAllOrders()
         let count = guest.bestellungen.count - 1
         let indexPath = IndexPath(row: count, section: 0)
         tableView.beginUpdates()
@@ -88,8 +92,8 @@ extension GuestDetailViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "guestDetailIdentifier", for: indexPath)
         let name = guest.bestellungen[indexPath.row].artikel.name
         let price = guest.bestellungen[indexPath.row].artikel.preiss
-        cell.textLabel?.text = "\(name) - \(price)"
-        
+        cell.textLabel?.text = name
+        cell.detailTextLabel?.text = CurrencyFormater.getCurrencyString(number: price)
         return cell
     }
 }
@@ -105,3 +109,4 @@ extension GuestDetailViewController: UITableViewDelegate {
         }
     }
 }
+

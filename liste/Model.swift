@@ -106,8 +106,8 @@ struct Rechnung: Berechenbar {
     
     func billPrint() -> String {
         var billTable = ""
-        let summe = "Summe: \(getCurrencyString(number: self.summeBestellungen()))"
-        let trinkgeld = "+ 10 % Trinkgeld: \(getCurrencyString(number: self.trinkGeld(prozent: 10)))"
+        let summe = "Summe: \(CurrencyFormater.getCurrencyString(number: self.summeBestellungen()))"
+        let trinkgeld = "+ 10 % Trinkgeld: \(CurrencyFormater.getCurrencyString(number: self.trinkGeld(prozent: 10)))"
         let columnHeadings = [("Nummer", false), ("Gast", false), ("Artikel", false), ("Preiss", false)]
         
         var maxStringLengt: Int {
@@ -115,7 +115,7 @@ struct Rechnung: Berechenbar {
             for bestellung in bestellungen {
                 caracterCount = max(caracterCount, bestellung.gast.name.characters.count)
                 caracterCount = max(caracterCount, bestellung.artikel.name.characters.count)
-                caracterCount = max(caracterCount, getCurrencyString(number: self.summeBestellungen()).characters.count)
+                caracterCount = max(caracterCount, CurrencyFormater.getCurrencyString(number: self.summeBestellungen()).characters.count)
             }
             for (heading, _) in columnHeadings {
                 caracterCount = max(caracterCount, heading.characters.count)
@@ -160,7 +160,7 @@ struct Rechnung: Berechenbar {
             row.append(("\(index + 1)", false))
             row.append((bestellung.gast.name, false))
             row.append((bestellung.artikel.name, false))
-            row.append((getCurrencyString(number: bestellung.artikel.preiss), true))
+            row.append((CurrencyFormater.getCurrencyString(number: bestellung.artikel.preiss), true))
             addTableRow(row)
         }
         billTable.append(tableRowLine)
@@ -170,17 +170,6 @@ struct Rechnung: Berechenbar {
         return billTable
     }
     
-    func getCurrencyString(number: Double) -> String {
-        if number == 0 {
-            return ""
-        }
-        let formatter = NumberFormatter()
-        formatter.locale = NSLocale(localeIdentifier: "de_DE") as Locale!
-        formatter.numberStyle = .currency
-        formatter.maximumFractionDigits = 2
-        let formattedString = formatter.string(for: number)
-        return formattedString!
-    }
 }
 
 
