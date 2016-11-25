@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:liste.xcodeproj">
+      location = "self:/Users/d_riewe/Desktop/liste/Aufteilen.xcodeproj">
    </FileRef>
 </Workspace>
