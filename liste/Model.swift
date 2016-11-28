@@ -62,10 +62,17 @@ class Gast {
     }
 }
 
-struct Bestellung {
+struct Bestellung: Hashable {
+    var hashValue: Int {
+        return self.artikel.name.hashValue ^ self.artikel.preiss.hashValue
+    }
     let gast: Gast
     let artikel: Bestellbar
 }
+func ==(lhs: Bestellung, rhs: Bestellung) -> Bool {
+    return lhs.hashValue == rhs.hashValue
+}
+
 
 struct Essen: Bestellbar {
     let name: String
@@ -103,6 +110,11 @@ class Tisch {
 
 struct Rechnung: Berechenbar {
     var bestellungen: [Bestellung] = []
+    var totalOrders: [(element: Bestellung, count: Int)] {
+        let bag = Bag(bestellungen)
+        let array = Array(bag)
+        return array
+    }
     
     func billPrint() -> String {
         var billTable = ""

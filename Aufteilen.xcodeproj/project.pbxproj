@@ -16,6 +16,7 @@
 		CDA49C221D9A524700B5EAFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA49C201D9A524700B5EAFC /* Main.storyboard */; };
 		CDA49C241D9A524700B5EAFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA49C231D9A524700B5EAFC /* Assets.xcassets */; };
 		CDA49C271D9A524700B5EAFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA49C251D9A524700B5EAFC /* LaunchScreen.storyboard */; };
+		CDCA46751DEC933B008BF92D /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA46741DEC933B008BF92D /* Bag.swift */; };
 		CDDFB2731DE4B8BF00117D7C /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDFB2721DE4B8BF00117D7C /* OrderDetailsViewController.swift */; };
 		CDE987F61DDF320C000790F2 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE987F51DDF320C000790F2 /* RootTabBarViewController.swift */; };
 		CDE987F81DDF3729000790F2 /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE987F71DDF3729000790F2 /* BillViewController.swift */; };
@@ -33,6 +34,7 @@
 		CDA49C231D9A524700B5EAFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDA49C261D9A524700B5EAFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDA49C281D9A524700B5EAFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDCA46741DEC933B008BF92D /* Bag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
 		CDDFB2721DE4B8BF00117D7C /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		CDE987F51DDF320C000790F2 /* RootTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
 		CDE987F71DDF3729000790F2 /* BillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
@@ -71,11 +73,12 @@
 				CDA49C1A1D9A524700B5EAFC /* AppDelegate.swift */,
 				CD93F0991DE59A34001328E1 /* CurrencyFormater.swift */,
 				CD0CF3511D9ACAC10086F6D6 /* Model.swift */,
+				CDCA46741DEC933B008BF92D /* Bag.swift */,
 				CDE987F51DDF320C000790F2 /* RootTabBarViewController.swift */,
-				CD0CF34D1D9AC6FF0086F6D6 /* OrdersTableViewController.swift */,
-				CDDFB2721DE4B8BF00117D7C /* OrderDetailsViewController.swift */,
 				CD0CF34F1D9AC7380086F6D6 /* GuestTableViewController.swift */,
 				CD234D0D1DE307FF00A13523 /* GuestDetailViewController.swift */,
+				CD0CF34D1D9AC6FF0086F6D6 /* OrdersTableViewController.swift */,
+				CDDFB2721DE4B8BF00117D7C /* OrderDetailsViewController.swift */,
 				CDE987F71DDF3729000790F2 /* BillViewController.swift */,
 				CDA49C201D9A524700B5EAFC /* Main.storyboard */,
 				CDA49C231D9A524700B5EAFC /* Assets.xcassets */,
@@ -158,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDCA46751DEC933B008BF92D /* Bag.swift in Sources */,
 				CDDFB2731DE4B8BF00117D7C /* OrderDetailsViewController.swift in Sources */,
 				CD0CF3501D9AC7380086F6D6 /* GuestTableViewController.swift in Sources */,
 				CD0CF34E1D9AC6FF0086F6D6 /* OrdersTableViewController.swift in Sources */,

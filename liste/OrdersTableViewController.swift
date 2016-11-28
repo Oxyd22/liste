@@ -10,7 +10,7 @@ import UIKit
 
 class OrdersTableViewController: UITableViewController {
     var tisch: Tisch!
-    
+    var totalOrders: [(element: Bestellung, count: Int)]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +25,7 @@ class OrdersTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.totalOrders = self.tisch.rechnung.totalOrders
         tableView.reloadData()
     }
     
@@ -42,17 +43,20 @@ class OrdersTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tisch.rechnung.bestellungen.count
+        return totalOrders.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCellIdentifier", for: indexPath)
         
-        let bestellung = tisch.rechnung.bestellungen[indexPath.row]
-        let preiss = CurrencyFormater.getCurrencyString(number: bestellung.artikel.preiss)
-        cell.textLabel?.text = "\(bestellung.artikel.name): \(preiss) - \(bestellung.gast.name)"
-        
+        let item = totalOrders[indexPath.row]
+        let artikelName = item.element.artikel.name
+        let artikelPreiss = CurrencyFormater.getCurrencyString(number: item.element.artikel.preiss)
+        let preissSumme = item.element.artikel.preiss * Double(item.count)
+        let count = item.count
+        cell.textLabel?.text = "\(count) - \(artikelName)"
+        cell.detailTextLabel?.text = "Stück: \(artikelPreiss) * \(count) = \(preissSumme)"
         return cell
     }
     

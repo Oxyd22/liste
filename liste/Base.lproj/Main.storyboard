@@ -13,7 +13,7 @@
         <!--Gäste-->
         <scene sceneID="VsF-Xn-1rQ">
             <objects>
-                <tableViewController id="1XM-kM-DJH" customClass="GuestTableViewController" customModule="liste" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="1XM-kM-DJH" customClass="GuestTableViewController" customModule="Aufteilen" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="AlA-rC-TTw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,18 +48,18 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lod-83-gPX" id="Fbe-bw-tnO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="91"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="91.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d40-yA-7OW">
-                                            <rect key="frame" x="15" y="35" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="36" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lh5-5t-BhI">
-                                            <rect key="frame" x="316" y="35" width="44" height="21"/>
+                                            <rect key="frame" x="316" y="36" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -95,7 +95,7 @@
         <!--Guest Detail View Controller-->
         <scene sceneID="xUD-Ut-RKe">
             <objects>
-                <viewController id="Qrb-wa-rgl" customClass="GuestDetailViewController" customModule="liste" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Qrb-wa-rgl" customClass="GuestDetailViewController" customModule="Aufteilen" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xXa-tg-wsz"/>
                         <viewControllerLayoutGuide type="bottom" id="Pqc-lD-VeS"/>
@@ -153,18 +153,18 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gR9-GN-bsv" id="zC3-1g-bd8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dd4-KE-D5A">
-                                                    <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UjL-Qr-x3e">
-                                                    <rect key="frame" x="316" y="11" width="44" height="21"/>
+                                                    <rect key="frame" x="316" y="12" width="44" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -222,21 +222,28 @@
         <!--Bestellungen-->
         <scene sceneID="aaq-bI-LSQ">
             <objects>
-                <tableViewController id="1AV-WV-9au" customClass="OrdersTableViewController" customModule="liste" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="1AV-WV-9au" customClass="OrdersTableViewController" customModule="Aufteilen" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="GPX-dH-687">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderCellIdentifier" textLabel="6XN-Fj-hlv" style="IBUITableViewCellStyleDefault" id="We1-eR-9Js">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderCellIdentifier" textLabel="6XN-Fj-hlv" detailTextLabel="kCH-qA-dwz" style="IBUITableViewCellStyleValue1" id="We1-eR-9Js">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="We1-eR-9Js" id="7vJ-pI-8wW">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6XN-Fj-hlv">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kCH-qA-dwz">
+                                            <rect key="frame" x="316" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -266,7 +273,7 @@
         <!--Order Details View Controller-->
         <scene sceneID="B0M-4a-KlJ">
             <objects>
-                <viewController id="6DX-bO-2C2" customClass="OrderDetailsViewController" customModule="liste" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6DX-bO-2C2" customClass="OrderDetailsViewController" customModule="Aufteilen" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a6g-7z-pum"/>
                         <viewControllerLayoutGuide type="bottom" id="PA4-Er-rSB"/>
@@ -345,7 +352,7 @@
         <!--Bill View Controller-->
         <scene sceneID="VHj-Y8-nYI">
             <objects>
-                <viewController id="52q-in-59i" customClass="BillViewController" customModule="liste" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="52q-in-59i" customClass="BillViewController" customModule="Aufteilen" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="etk-1C-hZc"/>
                         <viewControllerLayoutGuide type="bottom" id="RbS-Zk-rgi"/>
@@ -382,7 +389,7 @@
         <!--Root Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" customClass="RootTabBarViewController" customModule="liste" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="RootTabBarViewController" customModule="Aufteilen" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
