@@ -111,8 +111,12 @@ class Tisch {
 struct Rechnung: Berechenbar {
     var bestellungen: [Bestellung] = []
     var totalOrders: [(element: Bestellung, count: Int)] {
-        let bag = Bag(bestellungen)
-        let array = Array(bag)
+		let countedSet = NSCountedSet(array: bestellungen)
+		var array: [(element: Bestellung, count: Int)] = []
+		for order in countedSet {
+			let elementCount = (order as! Bestellung, countedSet.count(for: order))
+			array.append(elementCount)
+		}
         return array
     }
     

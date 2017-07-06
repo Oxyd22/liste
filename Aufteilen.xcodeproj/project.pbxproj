@@ -16,7 +16,6 @@
 		CDA49C221D9A524700B5EAFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA49C201D9A524700B5EAFC /* Main.storyboard */; };
 		CDA49C241D9A524700B5EAFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA49C231D9A524700B5EAFC /* Assets.xcassets */; };
 		CDA49C271D9A524700B5EAFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA49C251D9A524700B5EAFC /* LaunchScreen.storyboard */; };
-		CDCA46751DEC933B008BF92D /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA46741DEC933B008BF92D /* Bag.swift */; };
 		CDDFB2731DE4B8BF00117D7C /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDFB2721DE4B8BF00117D7C /* OrderDetailsViewController.swift */; };
 		CDE987F61DDF320C000790F2 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE987F51DDF320C000790F2 /* RootTabBarViewController.swift */; };
 		CDE987F81DDF3729000790F2 /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE987F71DDF3729000790F2 /* BillViewController.swift */; };
@@ -34,7 +33,6 @@
 		CDA49C231D9A524700B5EAFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDA49C261D9A524700B5EAFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDA49C281D9A524700B5EAFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CDCA46741DEC933B008BF92D /* Bag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
 		CDDFB2721DE4B8BF00117D7C /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		CDE987F51DDF320C000790F2 /* RootTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
 		CDE987F71DDF3729000790F2 /* BillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +71,6 @@
 				CDA49C1A1D9A524700B5EAFC /* AppDelegate.swift */,
 				CD93F0991DE59A34001328E1 /* CurrencyFormater.swift */,
 				CD0CF3511D9ACAC10086F6D6 /* Model.swift */,
-				CDCA46741DEC933B008BF92D /* Bag.swift */,
 				CDE987F51DDF320C000790F2 /* RootTabBarViewController.swift */,
 				CD0CF34F1D9AC7380086F6D6 /* GuestTableViewController.swift */,
 				CD234D0D1DE307FF00A13523 /* GuestDetailViewController.swift */,
@@ -115,12 +112,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = ddd;
 				TargetAttributes = {
 					CDA49C161D9A524700B5EAFC = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = W6EMZRLJ6M;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -161,7 +159,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDCA46751DEC933B008BF92D /* Bag.swift in Sources */,
 				CDDFB2731DE4B8BF00117D7C /* OrderDetailsViewController.swift in Sources */,
 				CD0CF3501D9AC7380086F6D6 /* GuestTableViewController.swift in Sources */,
 				CD0CF34E1D9AC6FF0086F6D6 /* OrdersTableViewController.swift in Sources */,
@@ -205,7 +202,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -213,7 +212,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -255,7 +258,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -263,7 +268,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -298,7 +307,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.solutio.liste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -311,7 +321,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.solutio.liste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
