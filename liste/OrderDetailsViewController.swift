@@ -10,6 +10,10 @@ import UIKit
 
 class OrderDetailsViewController: UIViewController {
     var tisch: Tisch!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var priceTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,7 +38,7 @@ class OrderDetailsViewController: UIViewController {
 
 }
 
-extension OrderDetailsViewController: UITableViewDataSource {
+extension OrderDetailsViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -49,5 +53,17 @@ extension OrderDetailsViewController: UITableViewDataSource {
         cell.textLabel?.text = name
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let guest = tisch.gäste[indexPath.row]
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.accessoryType = .checkmark
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.accessoryType = .none
+    }
 }
+
 
