@@ -9,7 +9,7 @@
 import UIKit
 
 class RootTabBarViewController: UITabBarController {
-    let tisch = Tisch()
+    let tisch = Table()
 
     override func viewDidLoad() {
         super.viewDidLoad()

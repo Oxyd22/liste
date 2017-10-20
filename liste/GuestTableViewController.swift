@@ -10,7 +10,7 @@ import UIKit
 
 
 class GuestTableViewController: UITableViewController {
-    var tisch: Tisch!
+    var tisch: Table!
     @IBOutlet weak var summLabel: UILabel!
     
     override func viewDidLoad() {
@@ -36,7 +36,7 @@ class GuestTableViewController: UITableViewController {
     }
     
     func displaySummForAllOrders() {
-        let summ = tisch.rechnung.summeBestellungen()
+        let summ = tisch.bill.totalAmount()
         summLabel.text = CurrencyFormater.getCurrencyString(number: summ)
     }
     
@@ -49,15 +49,15 @@ class GuestTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tisch.gäste.count
+        return tisch.customers.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "guestCellIdentifier", for: indexPath)
-        let guest = tisch.gäste[indexPath.row]
+        let guest = tisch.customers[indexPath.row]
         let name = guest.name
-        let summe = guest.rechnung.summeBestellungen()
+        let summe = guest.bill.totalAmount()
         cell.textLabel?.text = name
         cell.detailTextLabel?.text = CurrencyFormater.getCurrencyString(number: summe)
         
@@ -66,8 +66,8 @@ class GuestTableViewController: UITableViewController {
     
     func newGuestOnTable(name: String) {
         if name != "" {
-            tisch.addGast(name: name)
-            let count = tisch.gäste.count - 1
+            tisch.addCustomer(name: name)
+            let count = tisch.customers.count - 1
             let indexPath = IndexPath(row: count, section: 0)
             tableView.beginUpdates()
             tableView.insertRows(at: [indexPath], with: .automatic)
@@ -101,7 +101,7 @@ class GuestTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tisch.gäste.remove(at: indexPath.row)
+            tisch.customers.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -115,7 +115,7 @@ class GuestTableViewController: UITableViewController {
         let destination = segue.destination as! GuestDetailViewController
         if segue.identifier == "ShowDetailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                destination.guest = tisch.gäste[indexPath.row]
+                destination.guest = tisch.customers[indexPath.row]
             }
         }
     }

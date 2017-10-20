@@ -9,8 +9,8 @@
 import UIKit
 
 class OrdersTableViewController: UITableViewController {
-    var tisch: Tisch!
-    var totalOrders: [(element: Bestellung, count: Int)]!
+    var tisch: Table!
+    var totalOrders: [(element: Order, count: Int)]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class OrdersTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.totalOrders = self.tisch.rechnung.totalOrders
+        self.totalOrders = self.tisch.bill.totalOrders
         tableView.reloadData()
     }
     
@@ -51,9 +51,9 @@ class OrdersTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCellIdentifier", for: indexPath)
         
         let item = totalOrders[indexPath.row]
-        let artikelName = item.element.artikel.name
-        let artikelPreiss = CurrencyFormater.getCurrencyString(number: item.element.artikel.preiss)
-        let preissSumme = item.element.artikel.preiss * Double(item.count)
+        let artikelName = item.element.item.name
+        let artikelPreiss = CurrencyFormater.getCurrencyString(number: item.element.item.price)
+        let preissSumme = item.element.item.price * Double(item.count)
         let count = item.count
         cell.textLabel?.text = "\(count) - \(artikelName)"
         cell.detailTextLabel?.text = "Stück: \(artikelPreiss) * \(count) = \(preissSumme)"

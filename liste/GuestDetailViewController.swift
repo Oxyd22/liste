@@ -9,7 +9,7 @@
 import UIKit
 
 class GuestDetailViewController: UIViewController {
-    var guest: Gast!
+    var guest: Customer!
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var sumLabel: UILabel!
@@ -29,7 +29,7 @@ class GuestDetailViewController: UIViewController {
     }
     
     func displaySummForAllOrders() {
-        let summ = guest.rechnung.summeBestellungen()
+        let summ = guest.bill.totalAmount()
         sumLabel.text = CurrencyFormater.getCurrencyString(number: summ)
     }
     
@@ -38,9 +38,9 @@ class GuestDetailViewController: UIViewController {
             return
         }
         let priceNumber = CurrencyFormater.getDoubleValue(currencyString: price)
-        guest.bestellen(name: name, preiss: priceNumber)
+		guest.order(name: name, price: priceNumber)
         displaySummForAllOrders()
-        let count = guest.bestellungen.count - 1
+        let count = guest.orders.count - 1
         let indexPath = IndexPath(row: count, section: 0)
         tableView.beginUpdates()
         tableView.insertRows(at: [indexPath], with: .automatic)
@@ -83,15 +83,15 @@ extension GuestDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let guest = guest {
-            return guest.bestellungen.count
+            return guest.orders.count
         }
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "guestDetailIdentifier", for: indexPath)
-        let name = guest.bestellungen[indexPath.row].artikel.name
-        let price = guest.bestellungen[indexPath.row].artikel.preiss
+        let name = guest.orders[indexPath.row].item.name
+        let price = guest.orders[indexPath.row].item.price
         cell.textLabel?.text = name
         cell.detailTextLabel?.text = CurrencyFormater.getCurrencyString(number: price)
         return cell
@@ -102,7 +102,7 @@ extension GuestDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            guest.bestellungen.remove(at: indexPath.row)
+            guest.orders.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

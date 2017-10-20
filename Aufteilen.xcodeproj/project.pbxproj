@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7622D101F99FB6600284B3C /* Orderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D0F1F99FB6600284B3C /* Orderable.swift */; };
+		B7622D131F99FC8F00284B3C /* Billable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D121F99FC8F00284B3C /* Billable.swift */; };
+		B7622D151F99FF5800284B3C /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D141F99FF5800284B3C /* Customer.swift */; };
+		B7622D171F9A034300284B3C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D161F9A034300284B3C /* Order.swift */; };
+		B7622D191F9A051D00284B3C /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D181F9A051D00284B3C /* OrderItem.swift */; };
+		B7622D1B1F9A061800284B3C /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D1A1F9A061800284B3C /* Table.swift */; };
+		B7622D1D1F9A08CB00284B3C /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D1C1F9A08CB00284B3C /* Bill.swift */; };
 		CD0CF34E1D9AC6FF0086F6D6 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CF34D1D9AC6FF0086F6D6 /* OrdersTableViewController.swift */; };
 		CD0CF3501D9AC7380086F6D6 /* GuestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CF34F1D9AC7380086F6D6 /* GuestTableViewController.swift */; };
-		CD0CF3521D9ACAC10086F6D6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CF3511D9ACAC10086F6D6 /* Model.swift */; };
 		CD234D0E1DE307FF00A13523 /* GuestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD234D0D1DE307FF00A13523 /* GuestDetailViewController.swift */; };
 		CD93F09A1DE59A34001328E1 /* CurrencyFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD93F0991DE59A34001328E1 /* CurrencyFormater.swift */; };
 		CDA49C1B1D9A524700B5EAFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA49C1A1D9A524700B5EAFC /* AppDelegate.swift */; };
@@ -22,9 +28,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B7622D0F1F99FB6600284B3C /* Orderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orderable.swift; sourceTree = "<group>"; };
+		B7622D121F99FC8F00284B3C /* Billable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Billable.swift; sourceTree = "<group>"; };
+		B7622D141F99FF5800284B3C /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		B7622D161F9A034300284B3C /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		B7622D181F9A051D00284B3C /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
+		B7622D1A1F9A061800284B3C /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
+		B7622D1C1F9A08CB00284B3C /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		CD0CF34D1D9AC6FF0086F6D6 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		CD0CF34F1D9AC7380086F6D6 /* GuestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestTableViewController.swift; sourceTree = "<group>"; };
-		CD0CF3511D9ACAC10086F6D6 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		CD234D0D1DE307FF00A13523 /* GuestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestDetailViewController.swift; sourceTree = "<group>"; };
 		CD93F0991DE59A34001328E1 /* CurrencyFormater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyFormater.swift; sourceTree = "<group>"; };
 		CDA49C171D9A524700B5EAFC /* Aufteilen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aufteilen.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +61,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B7622D111F99FB8000284B3C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B7622D1C1F9A08CB00284B3C /* Bill.swift */,
+				B7622D1A1F9A061800284B3C /* Table.swift */,
+				B7622D181F9A051D00284B3C /* OrderItem.swift */,
+				B7622D161F9A034300284B3C /* Order.swift */,
+				B7622D141F99FF5800284B3C /* Customer.swift */,
+				B7622D121F99FC8F00284B3C /* Billable.swift */,
+				B7622D0F1F99FB6600284B3C /* Orderable.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CDA49C0E1D9A524700B5EAFC = {
 			isa = PBXGroup;
 			children = (
@@ -70,7 +96,7 @@
 			children = (
 				CDA49C1A1D9A524700B5EAFC /* AppDelegate.swift */,
 				CD93F0991DE59A34001328E1 /* CurrencyFormater.swift */,
-				CD0CF3511D9ACAC10086F6D6 /* Model.swift */,
+				B7622D111F99FB8000284B3C /* Model */,
 				CDE987F51DDF320C000790F2 /* RootTabBarViewController.swift */,
 				CD0CF34F1D9AC7380086F6D6 /* GuestTableViewController.swift */,
 				CD234D0D1DE307FF00A13523 /* GuestDetailViewController.swift */,
@@ -161,12 +187,18 @@
 			files = (
 				CDDFB2731DE4B8BF00117D7C /* OrderDetailsViewController.swift in Sources */,
 				CD0CF3501D9AC7380086F6D6 /* GuestTableViewController.swift in Sources */,
+				B7622D131F99FC8F00284B3C /* Billable.swift in Sources */,
+				B7622D151F99FF5800284B3C /* Customer.swift in Sources */,
 				CD0CF34E1D9AC6FF0086F6D6 /* OrdersTableViewController.swift in Sources */,
 				CD234D0E1DE307FF00A13523 /* GuestDetailViewController.swift in Sources */,
+				B7622D1B1F9A061800284B3C /* Table.swift in Sources */,
 				CDE987F61DDF320C000790F2 /* RootTabBarViewController.swift in Sources */,
-				CD0CF3521D9ACAC10086F6D6 /* Model.swift in Sources */,
+				B7622D1D1F9A08CB00284B3C /* Bill.swift in Sources */,
 				CDA49C1B1D9A524700B5EAFC /* AppDelegate.swift in Sources */,
+				B7622D191F9A051D00284B3C /* OrderItem.swift in Sources */,
 				CD93F09A1DE59A34001328E1 /* CurrencyFormater.swift in Sources */,
+				B7622D171F9A034300284B3C /* Order.swift in Sources */,
+				B7622D101F99FB6600284B3C /* Orderable.swift in Sources */,
 				CDE987F81DDF3729000790F2 /* BillViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
