@@ -10,15 +10,15 @@ import Foundation
 
 class Customer {
 	let name: String
-	var orders: [Order]
+	var orders: [Order] = []
+	var tip = 0.0
 	var bill: Bill {
-		let bill = Bill(orders: orders)
+		let bill = Bill(orders: orders, tip: tip)
 		return bill
 	}
 	
 	init(name: String) {
 		self.name = name
-		self.orders = []
 	}
 	
 	func order(name: String, price: Double) {

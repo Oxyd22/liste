@@ -15,7 +15,10 @@ class Table {
 		let orders: [Order] = customers.flatMap { customer in
 			customer.orders
 		}
-		let bill = Bill(orders: orders)
+		let totalTip = customers.reduce(0.0) { (sum, customer) -> Double in
+			sum + customer.tip
+		}
+		let bill = Bill(orders: orders, tip: totalTip)
 		return bill
 	}
 	

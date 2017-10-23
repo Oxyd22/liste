@@ -19,9 +19,10 @@ class BillViewController: UIViewController {
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
-		var bill = ""
-		bill = tisch.bill.billing()
+		let tip = 0.10
+		var bill = tisch.bill.billing()
 		for gast in tisch.customers {
+			gast.tip = tip
 			let text = gast.bill.billing()
 			bill.append(text)
 		}

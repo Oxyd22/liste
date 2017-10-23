@@ -32,4 +32,12 @@ struct CurrencyFormater {
         return number.doubleValue
     }
 
+	static func getPercentString(number: Double) -> String {
+		let formatter = NumberFormatter()
+		formatter.locale = NSLocale.current
+		formatter.numberStyle = .percent
+		formatter.maximumFractionDigits = 2
+		let formattedString = formatter.string(for: number)
+		return formattedString!
+	}
 }

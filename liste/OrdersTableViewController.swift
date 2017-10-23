@@ -25,7 +25,7 @@ class OrdersTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.totalOrders = self.tisch.bill.totalOrders
+        self.totalOrders = self.tisch.bill.countedOrders
         tableView.reloadData()
     }
     

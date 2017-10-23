@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B7622D101F99FB6600284B3C /* Orderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D0F1F99FB6600284B3C /* Orderable.swift */; };
-		B7622D131F99FC8F00284B3C /* Billable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D121F99FC8F00284B3C /* Billable.swift */; };
 		B7622D151F99FF5800284B3C /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D141F99FF5800284B3C /* Customer.swift */; };
 		B7622D171F9A034300284B3C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D161F9A034300284B3C /* Order.swift */; };
 		B7622D191F9A051D00284B3C /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D181F9A051D00284B3C /* OrderItem.swift */; };
@@ -28,8 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B7622D0F1F99FB6600284B3C /* Orderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orderable.swift; sourceTree = "<group>"; };
-		B7622D121F99FC8F00284B3C /* Billable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Billable.swift; sourceTree = "<group>"; };
 		B7622D141F99FF5800284B3C /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		B7622D161F9A034300284B3C /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		B7622D181F9A051D00284B3C /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
@@ -69,8 +65,6 @@
 				B7622D181F9A051D00284B3C /* OrderItem.swift */,
 				B7622D161F9A034300284B3C /* Order.swift */,
 				B7622D141F99FF5800284B3C /* Customer.swift */,
-				B7622D121F99FC8F00284B3C /* Billable.swift */,
-				B7622D0F1F99FB6600284B3C /* Orderable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,7 +181,6 @@
 			files = (
 				CDDFB2731DE4B8BF00117D7C /* OrderDetailsViewController.swift in Sources */,
 				CD0CF3501D9AC7380086F6D6 /* GuestTableViewController.swift in Sources */,
-				B7622D131F99FC8F00284B3C /* Billable.swift in Sources */,
 				B7622D151F99FF5800284B3C /* Customer.swift in Sources */,
 				CD0CF34E1D9AC6FF0086F6D6 /* OrdersTableViewController.swift in Sources */,
 				CD234D0E1DE307FF00A13523 /* GuestDetailViewController.swift in Sources */,
@@ -198,7 +191,6 @@
 				B7622D191F9A051D00284B3C /* OrderItem.swift in Sources */,
 				CD93F09A1DE59A34001328E1 /* CurrencyFormater.swift in Sources */,
 				B7622D171F9A034300284B3C /* Order.swift in Sources */,
-				B7622D101F99FB6600284B3C /* Orderable.swift in Sources */,
 				CDE987F81DDF3729000790F2 /* BillViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

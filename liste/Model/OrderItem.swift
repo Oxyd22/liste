@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct OrderItem: Orderable {
+struct OrderItem {
 	let name: String
 	let price: Double
 }

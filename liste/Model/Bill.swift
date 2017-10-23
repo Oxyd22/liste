@@ -9,12 +9,10 @@
 import Foundation
 
 
-struct Bill: Billable {
-	var tip: Double = 0.0
-	var orders: [Order] = []
-	
-	//Achtung! Konform zum Protokoll
-	var totalOrders: [(element: Order, count: Int)] {
+struct Bill {
+	let orders: [Order]
+	let tip: Double
+	var countedOrders: [(element: Order, count: Int)] {
 		let countedSet = NSCountedSet(array: orders)
 		var array: [(element: Order, count: Int)] = []
 		for order in countedSet {
@@ -24,15 +22,32 @@ struct Bill: Billable {
 		return array
 	}
 	
-	init(orders: [Order]) {
-		self.orders = orders
+	func totalAmount() -> Double {
+		let total = orders.reduce(0.0) { (sum, order) -> Double in
+			sum + order.item.price
+		}
+		return total
+	}
+	
+	func tipAmound() -> Double {
+		let total = self.totalAmount()
+		let tip = total * self.tip
+		return tip
+	}
+	
+	func finalAmound() -> Double {
+		let total = self.totalAmount()
+		let tip = self.tipAmound()
+		let final = total + tip
+		return final.rounded(.up)
 	}
 	
 	func billing() -> String {
-		var billTable = ""
-		let summe = "Summe: \(CurrencyFormater.getCurrencyString(number: self.totalAmount()))"
-		let trinkgeld = "+ 10 % Trinkgeld: \(CurrencyFormater.getCurrencyString(number: self.tip(percent: 10)))"
-		let columnHeadings = [("Nummer", false), ("Gast", false), ("Artikel", false), ("Preiss", false)]
+		var billSpreadsheet = ""
+		let totalAmound = "Rechnungsbetrag: \(CurrencyFormater.getCurrencyString(number: self.totalAmount()))"
+		let tipAmound = "\(CurrencyFormater.getPercentString(number: self.tip)) Trinkgeld: \(CurrencyFormater.getCurrencyString(number: self.tipAmound()))"
+		let finalAmound = "Endbetrag: ≈\(CurrencyFormater.getCurrencyString(number: self.finalAmound()))"
+		let columnHeadings = [("Nummer.", false), ("Gast", false), ("Artikel", false), ("Preiss", false)]
 		
 		var maxStringLengt: Int {
 			var caracterCount = 0
@@ -68,17 +83,17 @@ struct Bill: Billable {
 			if columnValues.count == 1 {
 				columnLength = tableLength
 			}
-			billTable.append("|")
+			billSpreadsheet.append("|")
 			for (value, reverse) in columnValues {
-				billTable.append(spacePadding(value,toLength: columnLength, reverse: reverse))
-				billTable.append("|")
+				billSpreadsheet.append(spacePadding(value, toLength: columnLength, reverse: reverse))
+				billSpreadsheet.append("|")
 			}
-			billTable.append("\n")
+			billSpreadsheet.append("\n")
 		}
 		
-		billTable.append(tableBorderLine)
+		billSpreadsheet.append(tableBorderLine)
 		addTableRow(columnHeadings)
-		billTable.append(tableRowLine)
+		billSpreadsheet.append(tableRowLine)
 		for (index, bestellung) in orders.enumerated() {
 			var row: [(String, Bool)] = []
 			row.append(("\(index + 1)", false))
@@ -87,11 +102,12 @@ struct Bill: Billable {
 			row.append((CurrencyFormater.getCurrencyString(number: bestellung.item.price), true))
 			addTableRow(row)
 		}
-		billTable.append(tableRowLine)
-		addTableRow([(summe, true)])
-		addTableRow([(trinkgeld, true)])
-		billTable.append(tableBorderLine)
-		return billTable
+		billSpreadsheet.append(tableRowLine)
+		addTableRow([(totalAmound, true)])
+		addTableRow([(tipAmound, true)])
+		addTableRow([(finalAmound, true)])
+		billSpreadsheet.append(tableBorderLine)
+		return billSpreadsheet
 	}
 	
 }

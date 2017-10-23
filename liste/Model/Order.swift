@@ -14,7 +14,7 @@ struct Order: Hashable {
 		return self.item.name.hashValue ^ self.item.price.hashValue
 	}
 	let customer: Customer
-	let item: Orderable
+	let item: OrderItem
 }
 func ==(lhs: Order, rhs: Order) -> Bool {
 	return lhs.hashValue == rhs.hashValue
