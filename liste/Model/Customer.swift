@@ -9,9 +9,9 @@
 import Foundation
 
 class Customer {
-	let name: String
+	var name: String
 	var orders: [Order] = []
-	var tip = 0.0
+	var tip = Tip.ten
 	var bill: Bill {
 		let bill = Bill(orders: orders, tip: tip)
 		return bill

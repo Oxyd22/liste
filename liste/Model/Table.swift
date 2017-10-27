@@ -8,17 +8,13 @@
 
 import Foundation
 
-
 class Table {
 	var customers: [Customer]
 	var bill: Bill {
 		let orders: [Order] = customers.flatMap { customer in
 			customer.orders
 		}
-		let totalTip = customers.reduce(0.0) { (sum, customer) -> Double in
-			sum + customer.tip
-		}
-		let bill = Bill(orders: orders, tip: totalTip)
+		let bill = Bill(orders: orders, tip: Tip.five)
 		return bill
 	}
 	

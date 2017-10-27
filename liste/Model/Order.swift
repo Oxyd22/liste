@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct Order: Hashable {
 	var hashValue: Int {
 		return self.item.name.hashValue ^ self.item.price.hashValue

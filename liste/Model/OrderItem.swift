@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct OrderItem {
 	let name: String
 	let price: Double

@@ -13,11 +13,27 @@ class GuestDetailViewController: UIViewController {
 	@IBOutlet var tableView: UITableView!
 	@IBOutlet weak var nameTextField: UITextField!
 	@IBOutlet weak var totalAmountLabel: UILabel!
+	@IBOutlet weak var tipSegmentedControl: UISegmentedControl!
+	
+	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		let name = customer.name
+		let tip = customer.tip
 		nameTextField.text = name
+		let index: Int
+		switch tip {
+		case .five:
+			index = 0
+		case .ten:
+			index = 1
+		case .fifteen:
+			index = 2
+		case .twenty:
+			index = 3
+		}
+		tipSegmentedControl.selectedSegmentIndex = index
 		displaySummForAllOrders()
 	}
 	
@@ -45,6 +61,25 @@ class GuestDetailViewController: UIViewController {
 		tableView.endUpdates()
 	}
 	
+	@IBAction func tipValueChanged(_ sender: UISegmentedControl) {
+		let selectedSegment = sender.selectedSegmentIndex
+		let tip: Tip
+		switch selectedSegment {
+		case 0:
+			tip = Tip.five
+		case 1:
+			tip = Tip.ten
+		case 2:
+			tip = Tip.fifteen
+		case 3:
+			tip = Tip.twenty
+		default:
+			tip = Tip.ten
+		}
+		customer.tip = tip
+	}
+	
+	
 	@IBAction func addOrderButton(_ sender: UIButton) {
 		let alertController = UIAlertController(title: "Bestellung hinzufügen", message: "Geben Sie Name und Preiss des Artikels ein.", preferredStyle: UIAlertControllerStyle.alert)
 		alertController.addTextField { (textField) in
@@ -71,7 +106,16 @@ class GuestDetailViewController: UIViewController {
 		
 	}
 	
-	
+}
+
+extension GuestDetailViewController: UITextFieldDelegate {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		if let text = textField.text {
+			customer.name = text
+			textField.resignFirstResponder()
+		}
+		return true
+	}
 }
 
 extension GuestDetailViewController: UITableViewDataSource {

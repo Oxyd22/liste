@@ -8,10 +8,9 @@
 
 import Foundation
 
-
 struct Bill {
 	let orders: [Order]
-	let tip: Double
+	let tip: Tip
 	var countedOrders: [(element: Order, count: Int)] {
 		let countedSet = NSCountedSet(array: orders)
 		var array: [(element: Order, count: Int)] = []
@@ -31,7 +30,7 @@ struct Bill {
 	
 	func tipAmound() -> Double {
 		let total = self.totalAmount()
-		let tip = total * self.tip
+		let tip = total * self.tip.rawValue
 		return tip
 	}
 	
@@ -44,7 +43,7 @@ struct Bill {
 	
 	func billing() -> String {
 		let totalAmound = "Rechnungsbetrag: \(CurrencyFormater.getCurrencyString(number: self.totalAmount()))"
-		let tipAmound = "\(CurrencyFormater.getPercentString(number: self.tip)) Trinkgeld: \(CurrencyFormater.getCurrencyString(number: self.tipAmound()))"
+		let tipAmound = "\(CurrencyFormater.getPercentString(number: self.tip.rawValue)) Trinkgeld: \(CurrencyFormater.getCurrencyString(number: self.tipAmound()))"
 		let finalAmound = "Endbetrag: ≈\(CurrencyFormater.getCurrencyString(number: self.finalAmound()))"
 		
 		var tableGenerator = TableGenerator()
