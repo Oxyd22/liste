@@ -27,11 +27,11 @@ class Table {
 	}
 	
 	func addCustomer(name: String) {
-		let gast = Customer(name: name)
-		self.customers.append(gast)
+		let customer = Customer(name: name)
+		self.customers.append(customer)
 	}
 	
-	func addCustomer(gast: Customer) {
-		self.customers.append(gast)
+	func addCustomer(_ customer: Customer) {
+		self.customers.append(customer)
 	}
 }

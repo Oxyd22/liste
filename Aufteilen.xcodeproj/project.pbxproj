@@ -12,6 +12,7 @@
 		B7622D191F9A051D00284B3C /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D181F9A051D00284B3C /* OrderItem.swift */; };
 		B7622D1B1F9A061800284B3C /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D1A1F9A061800284B3C /* Table.swift */; };
 		B7622D1D1F9A08CB00284B3C /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D1C1F9A08CB00284B3C /* Bill.swift */; };
+		B7E2A8DD1FA25D8900C69852 /* TableGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2A8DC1FA25D8800C69852 /* TableGenerator.swift */; };
 		CD0CF34E1D9AC6FF0086F6D6 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CF34D1D9AC6FF0086F6D6 /* OrdersTableViewController.swift */; };
 		CD0CF3501D9AC7380086F6D6 /* GuestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CF34F1D9AC7380086F6D6 /* GuestTableViewController.swift */; };
 		CD234D0E1DE307FF00A13523 /* GuestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD234D0D1DE307FF00A13523 /* GuestDetailViewController.swift */; };
@@ -31,6 +32,7 @@
 		B7622D181F9A051D00284B3C /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
 		B7622D1A1F9A061800284B3C /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		B7622D1C1F9A08CB00284B3C /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		B7E2A8DC1FA25D8800C69852 /* TableGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableGenerator.swift; sourceTree = "<group>"; };
 		CD0CF34D1D9AC6FF0086F6D6 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		CD0CF34F1D9AC7380086F6D6 /* GuestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestTableViewController.swift; sourceTree = "<group>"; };
 		CD234D0D1DE307FF00A13523 /* GuestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestDetailViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				CDA49C1A1D9A524700B5EAFC /* AppDelegate.swift */,
 				CD93F0991DE59A34001328E1 /* CurrencyFormater.swift */,
+				B7E2A8DC1FA25D8800C69852 /* TableGenerator.swift */,
 				B7622D111F99FB8000284B3C /* Model */,
 				CDE987F51DDF320C000790F2 /* RootTabBarViewController.swift */,
 				CD0CF34F1D9AC7380086F6D6 /* GuestTableViewController.swift */,
@@ -183,6 +186,7 @@
 				CD0CF3501D9AC7380086F6D6 /* GuestTableViewController.swift in Sources */,
 				B7622D151F99FF5800284B3C /* Customer.swift in Sources */,
 				CD0CF34E1D9AC6FF0086F6D6 /* OrdersTableViewController.swift in Sources */,
+				B7E2A8DD1FA25D8900C69852 /* TableGenerator.swift in Sources */,
 				CD234D0E1DE307FF00A13523 /* GuestDetailViewController.swift in Sources */,
 				B7622D1B1F9A061800284B3C /* Table.swift in Sources */,
 				CDE987F61DDF320C000790F2 /* RootTabBarViewController.swift in Sources */,
