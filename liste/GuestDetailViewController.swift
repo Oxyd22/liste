@@ -19,7 +19,6 @@ class GuestDetailViewController: UIViewController {
 		let name = customer.name
 		nameTextField.text = name
 		displaySummForAllOrders()
-		automaticallyAdjustsScrollViewInsets = false
 	}
 	
 	override func didReceiveMemoryWarning() {

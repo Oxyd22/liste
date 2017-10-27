@@ -9,7 +9,7 @@
 import UIKit
 
 class OrderDetailsViewController: UIViewController {
-    var tisch: Table!
+    var table: Table!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
     
@@ -44,18 +44,18 @@ extension OrderDetailsViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tisch.customers.count
+        return table.customers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderDetailIdentifier", for: indexPath)
-        let name = tisch.customers[indexPath.row].name
+        let name = table.customers[indexPath.row].name
         cell.textLabel?.text = name
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let guest = tisch.customers[indexPath.row]
+        let guest = table.customers[indexPath.row]
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .checkmark
     }

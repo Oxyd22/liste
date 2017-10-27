@@ -15,7 +15,7 @@ class BillViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		let rootTabBarViewController = self.tabBarController as! RootTabBarViewController
-		self.tisch = rootTabBarViewController.tisch
+		self.tisch = rootTabBarViewController.table
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {

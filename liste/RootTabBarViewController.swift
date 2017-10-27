@@ -9,17 +9,14 @@
 import UIKit
 
 class RootTabBarViewController: UITabBarController {
-    let tisch = Table()
+    let table = Table()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
@@ -30,6 +27,11 @@ class RootTabBarViewController: UITabBarController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+	
+	var tabBarController = segue.destination as UITabBarController
+	var destinationViewController = tabBarController.viewControllers[0] as YourViewController // or whatever tab index you're trying to access
+	destination.property = "some value"
+	
     }
     */
 

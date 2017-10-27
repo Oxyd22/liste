@@ -84,7 +84,7 @@
                     <navigationItem key="navigationItem" title="Gäste" id="ZM7-7u-KKS">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="x5K-Ia-MZZ">
                             <connections>
-                                <segue destination="Qrb-wa-rgl" kind="show" identifier="AddGuestSegue" id="axY-rE-Iwj"/>
+                                <action selector="newCustomer:" destination="1XM-kM-DJH" id="KwD-Lh-Mr1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -108,11 +108,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5TE-s9-Gzb">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5TE-s9-Gzb">
                                 <rect key="frame" x="124" y="107" width="235" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                                 <connections>
                                     <outlet property="delegate" destination="Qrb-wa-rgl" id="aDf-Fs-rez"/>
                                 </connections>
@@ -458,7 +458,4 @@
         <image name="Food" width="40" height="40"/>
         <image name="Guest" width="40" height="40"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="axY-rE-Iwj"/>
-    </inferredMetricsTieBreakers>
 </document>

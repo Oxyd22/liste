@@ -9,7 +9,7 @@
 import UIKit
 
 class OrdersTableViewController: UITableViewController {
-    var tisch: Table!
+    var table: Table!
     var totalOrders: [(element: Order, count: Int)]!
     
     override func viewDidLoad() {
@@ -21,11 +21,11 @@ class OrdersTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 //        self.navigationItem.leftBarButtonItem = self.editButtonItem
         let rootTabBarViewController = self.tabBarController as! RootTabBarViewController
-        self.tisch = rootTabBarViewController.tisch
+        self.table = rootTabBarViewController.table
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.totalOrders = self.tisch.bill.countedOrders
+        self.totalOrders = self.table.bill.countedOrders
         tableView.reloadData()
     }
     
@@ -81,7 +81,7 @@ class OrdersTableViewController: UITableViewController {
             if tableView.indexPathForSelectedRow != nil {
                 
             }
-            orderDetailsViewController.tisch = tisch
+            orderDetailsViewController.table = table
         }
      }
     

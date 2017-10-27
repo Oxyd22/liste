@@ -10,7 +10,7 @@ import UIKit
 
 
 class GuestTableViewController: UITableViewController {
-	var tisch: Table!
+	var table: Table!
 	@IBOutlet weak var totalAmoundLabel: UILabel!
 	
 	override func viewDidLoad() {
@@ -22,7 +22,7 @@ class GuestTableViewController: UITableViewController {
 		// Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 		//        self.navigationItem.leftBarButtonItem = self.editButtonItem
 		let rootTabBarViewController = self.tabBarController as! RootTabBarViewController
-		self.tisch = rootTabBarViewController.tisch
+		self.table = rootTabBarViewController.table
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +36,7 @@ class GuestTableViewController: UITableViewController {
 	}
 	
 	func displaySummForAllOrders() {
-		let totalAmound = tisch.bill.totalAmount()
+		let totalAmound = table.bill.totalAmount()
 		totalAmoundLabel.text = CurrencyFormater.getCurrencyString(number: totalAmound)
 	}
 	
@@ -46,12 +46,12 @@ class GuestTableViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return tisch.customers.count
+		return table.customers.count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "guestCellIdentifier", for: indexPath)
-		let guest = tisch.customers[indexPath.row]
+		let guest = table.customers[indexPath.row]
 		let name = guest.name
 		let summe = guest.bill.totalAmount()
 		cell.textLabel?.text = name
@@ -59,20 +59,21 @@ class GuestTableViewController: UITableViewController {
 		return cell
 	}
 	
-	func newGuestOnTable(name: String) {
-		tisch.addCustomer(name: name)
-		let count = tisch.customers.count - 1
-		let indexPath = IndexPath(row: count, section: 0)
-		tableView.beginUpdates()
-		tableView.insertRows(at: [indexPath], with: .automatic)
-		tableView.endUpdates()
-	}
+    @IBAction func newCustomer(_ sender: UIBarButtonItem) {
+        let count = table.customers.count
+        let customer = Customer(name: "Gast \(count + 1)")
+        table.addCustomer(customer)
+        let indexPath = IndexPath(row: count, section: 0)
+        tableView.beginUpdates()
+        tableView.insertRows(at: [indexPath], with: .automatic)
+        tableView.endUpdates()
+    }
 	
 	// Override to support editing the table view.
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
 			// Delete the row from the data source
-			tisch.customers.remove(at: indexPath.row)
+			table.customers.remove(at: indexPath.row)
 			tableView.deleteRows(at: [indexPath], with: .fade)
 		} else if editingStyle == .insert {
 			// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -86,14 +87,8 @@ class GuestTableViewController: UITableViewController {
 		let destination = segue.destination as! GuestDetailViewController
 		if segue.identifier == "ShowDetailSegue" {
 			if let indexPath = tableView.indexPathForSelectedRow {
-				destination.customer = tisch.customers[indexPath.row]
+				destination.customer = table.customers[indexPath.row]
 			}
-		}
-		if segue.identifier == "AddGuestSegue" {
-			let count = tisch.customers.count
-			let customer = Customer(name: "Gast \(count)")
-			tisch.addCustomer(customer)
-			destination.customer = customer
 		}
 	}
 	
