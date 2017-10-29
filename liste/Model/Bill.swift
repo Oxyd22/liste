@@ -30,7 +30,7 @@ struct Bill {
 	
 	func tipAmound() -> Double {
 		let total = self.totalAmount()
-		let tip = total * self.tip.rawValue
+		let tip = total * self.tip.doubleValue
 		return tip
 	}
 	
@@ -43,7 +43,7 @@ struct Bill {
 	
 	func billing() -> String {
 		let totalAmound = "Rechnungsbetrag: \(CurrencyFormater.getCurrencyString(number: self.totalAmount()))"
-		let tipAmound = "\(CurrencyFormater.getPercentString(number: self.tip.rawValue)) Trinkgeld: \(CurrencyFormater.getCurrencyString(number: self.tipAmound()))"
+		let tipAmound = "\(CurrencyFormater.getPercentString(number: self.tip.doubleValue)) Trinkgeld: \(CurrencyFormater.getCurrencyString(number: self.tipAmound()))"
 		let finalAmound = "Endbetrag: ≈\(CurrencyFormater.getCurrencyString(number: self.finalAmound()))"
 		
 		var tableGenerator = TableGenerator()

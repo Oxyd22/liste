@@ -22,18 +22,7 @@ class GuestDetailViewController: UIViewController {
 		let name = customer.name
 		let tip = customer.tip
 		nameTextField.text = name
-		let index: Int
-		switch tip {
-		case .five:
-			index = 0
-		case .ten:
-			index = 1
-		case .fifteen:
-			index = 2
-		case .twenty:
-			index = 3
-		}
-		tipSegmentedControl.selectedSegmentIndex = index
+		tipSegmentedControl.selectedSegmentIndex = tip.rawValue
 		displaySummForAllOrders()
 	}
 	
@@ -63,20 +52,8 @@ class GuestDetailViewController: UIViewController {
 	
 	@IBAction func tipValueChanged(_ sender: UISegmentedControl) {
 		let selectedSegment = sender.selectedSegmentIndex
-		let tip: Tip
-		switch selectedSegment {
-		case 0:
-			tip = Tip.five
-		case 1:
-			tip = Tip.ten
-		case 2:
-			tip = Tip.fifteen
-		case 3:
-			tip = Tip.twenty
-		default:
-			tip = Tip.ten
-		}
-		customer.tip = tip
+		let tip =  Tip(rawValue: selectedSegment)
+		customer.tip = tip!
 	}
 	
 	

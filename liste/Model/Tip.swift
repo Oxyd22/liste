@@ -8,9 +8,23 @@
 
 import Foundation
 
-enum Tip: Double {
-	case five = 0.05
-	case ten = 0.1
-	case fifteen = 0.15
-	case twenty = 0.2
+enum Tip: Int {
+	case five = 0
+	case ten
+	case fifteen
+	case twenty
+	
+	var doubleValue: Double {
+		switch self {
+		case .five:
+			return 0.05
+		case .ten:
+			return 0.1
+		case .fifteen:
+			return 0.15
+		case .twenty:
+			return 0.20
+		}
+	}
 }
+
