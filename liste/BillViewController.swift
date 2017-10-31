@@ -10,6 +10,7 @@ import UIKit
 
 class BillViewController: UIViewController {
 	var table: Table!
+	var billText = ""
 	@IBOutlet weak var billTextView: UITextView!
 	@IBOutlet weak var tipSegmentControl: UISegmentedControl!
 	
@@ -35,8 +36,20 @@ class BillViewController: UIViewController {
 			let text = gast.bill.billing()
 			bill.append(text)
 		}
+		billText = bill
 		billTextView.text = bill
 	}
+	
+	@IBAction func shareBill(_ sender: UIBarButtonItem) {
+		let activityViewController = UIActivityViewController(
+			activityItems: ["Check out this.", billText], applicationActivities: nil)
+		if let popoverPresentationController = activityViewController.popoverPresentationController {
+			popoverPresentationController.barButtonItem = (sender)
+		}
+		present(activityViewController, animated: true, completion: nil)
+	}
+	
+	
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()

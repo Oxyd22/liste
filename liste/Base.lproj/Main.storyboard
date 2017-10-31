@@ -241,7 +241,7 @@
             </objects>
             <point key="canvasLocation" x="2836" y="-384.55772113943033"/>
         </scene>
-        <!--Bill View Controller-->
+        <!--Rechnung-->
         <scene sceneID="VHj-Y8-nYI">
             <objects>
                 <viewController id="52q-in-59i" customClass="BillViewController" customModule="Aufteilen" customModuleProvider="target" sceneMemberID="viewController">
@@ -305,7 +305,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YET-an-z0X"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="kSK-LK-1yN"/>
+                    <navigationItem key="navigationItem" title="Rechnung" id="DIt-vz-60N">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="ubE-uw-tff">
+                            <connections>
+                                <action selector="shareBill:" destination="52q-in-59i" id="Ube-qn-Kg1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="billTextView" destination="UOS-DQ-O6r" id="nxe-9g-meV"/>
                         <outlet property="tipSegmentControl" destination="iBZ-vp-G92" id="8Af-5G-Ktd"/>
