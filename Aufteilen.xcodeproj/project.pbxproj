@@ -14,7 +14,6 @@
 		B7622D1D1F9A08CB00284B3C /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D1C1F9A08CB00284B3C /* Bill.swift */; };
 		B79B096F1FA3C94800EBCD1E /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B096E1FA3C94800EBCD1E /* Tip.swift */; };
 		B7E2A8DD1FA25D8900C69852 /* TableGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2A8DC1FA25D8800C69852 /* TableGenerator.swift */; };
-		CD0CF34E1D9AC6FF0086F6D6 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CF34D1D9AC6FF0086F6D6 /* OrdersTableViewController.swift */; };
 		CD0CF3501D9AC7380086F6D6 /* GuestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CF34F1D9AC7380086F6D6 /* GuestTableViewController.swift */; };
 		CD234D0E1DE307FF00A13523 /* GuestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD234D0D1DE307FF00A13523 /* GuestDetailViewController.swift */; };
 		CD93F09A1DE59A34001328E1 /* CurrencyFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD93F0991DE59A34001328E1 /* CurrencyFormater.swift */; };
@@ -22,8 +21,6 @@
 		CDA49C221D9A524700B5EAFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA49C201D9A524700B5EAFC /* Main.storyboard */; };
 		CDA49C241D9A524700B5EAFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA49C231D9A524700B5EAFC /* Assets.xcassets */; };
 		CDA49C271D9A524700B5EAFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA49C251D9A524700B5EAFC /* LaunchScreen.storyboard */; };
-		CDDFB2731DE4B8BF00117D7C /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDFB2721DE4B8BF00117D7C /* OrderDetailsViewController.swift */; };
-		CDE987F61DDF320C000790F2 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE987F51DDF320C000790F2 /* RootTabBarViewController.swift */; };
 		CDE987F81DDF3729000790F2 /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE987F71DDF3729000790F2 /* BillViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +32,6 @@
 		B7622D1C1F9A08CB00284B3C /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		B79B096E1FA3C94800EBCD1E /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		B7E2A8DC1FA25D8800C69852 /* TableGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableGenerator.swift; sourceTree = "<group>"; };
-		CD0CF34D1D9AC6FF0086F6D6 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		CD0CF34F1D9AC7380086F6D6 /* GuestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestTableViewController.swift; sourceTree = "<group>"; };
 		CD234D0D1DE307FF00A13523 /* GuestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestDetailViewController.swift; sourceTree = "<group>"; };
 		CD93F0991DE59A34001328E1 /* CurrencyFormater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyFormater.swift; sourceTree = "<group>"; };
@@ -45,8 +41,6 @@
 		CDA49C231D9A524700B5EAFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDA49C261D9A524700B5EAFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDA49C281D9A524700B5EAFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CDDFB2721DE4B8BF00117D7C /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
-		CDE987F51DDF320C000790F2 /* RootTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
 		CDE987F71DDF3729000790F2 /* BillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,11 +91,8 @@
 				CD93F0991DE59A34001328E1 /* CurrencyFormater.swift */,
 				B7E2A8DC1FA25D8800C69852 /* TableGenerator.swift */,
 				B7622D111F99FB8000284B3C /* Model */,
-				CDE987F51DDF320C000790F2 /* RootTabBarViewController.swift */,
 				CD0CF34F1D9AC7380086F6D6 /* GuestTableViewController.swift */,
 				CD234D0D1DE307FF00A13523 /* GuestDetailViewController.swift */,
-				CD0CF34D1D9AC6FF0086F6D6 /* OrdersTableViewController.swift */,
-				CDDFB2721DE4B8BF00117D7C /* OrderDetailsViewController.swift */,
 				CDE987F71DDF3729000790F2 /* BillViewController.swift */,
 				CDA49C201D9A524700B5EAFC /* Main.storyboard */,
 				CDA49C231D9A524700B5EAFC /* Assets.xcassets */,
@@ -184,15 +175,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDDFB2731DE4B8BF00117D7C /* OrderDetailsViewController.swift in Sources */,
 				CD0CF3501D9AC7380086F6D6 /* GuestTableViewController.swift in Sources */,
 				B7622D151F99FF5800284B3C /* Customer.swift in Sources */,
-				CD0CF34E1D9AC6FF0086F6D6 /* OrdersTableViewController.swift in Sources */,
 				B7E2A8DD1FA25D8900C69852 /* TableGenerator.swift in Sources */,
 				B79B096F1FA3C94800EBCD1E /* Tip.swift in Sources */,
 				CD234D0E1DE307FF00A13523 /* GuestDetailViewController.swift in Sources */,
 				B7622D1B1F9A061800284B3C /* Table.swift in Sources */,
-				CDE987F61DDF320C000790F2 /* RootTabBarViewController.swift in Sources */,
 				B7622D1D1F9A08CB00284B3C /* Bill.swift in Sources */,
 				CDA49C1B1D9A524700B5EAFC /* AppDelegate.swift in Sources */,
 				B7622D191F9A051D00284B3C /* OrderItem.swift in Sources */,

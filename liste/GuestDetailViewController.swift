@@ -13,16 +13,13 @@ class GuestDetailViewController: UIViewController {
 	@IBOutlet var tableView: UITableView!
 	@IBOutlet weak var nameTextField: UITextField!
 	@IBOutlet weak var totalAmountLabel: UILabel!
-	@IBOutlet weak var tipSegmentedControl: UISegmentedControl!
 	
 	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		let name = customer.name
-		let tip = customer.tip
 		nameTextField.text = name
-		tipSegmentedControl.selectedSegmentIndex = tip.rawValue
 		displaySummForAllOrders()
 	}
 	
@@ -49,13 +46,6 @@ class GuestDetailViewController: UIViewController {
 		tableView.insertRows(at: [indexPath], with: .automatic)
 		tableView.endUpdates()
 	}
-	
-	@IBAction func tipValueChanged(_ sender: UISegmentedControl) {
-		let selectedSegment = sender.selectedSegmentIndex
-		let tip =  Tip(rawValue: selectedSegment)
-		customer.tip = tip!
-	}
-	
 	
 	@IBAction func addOrderButton(_ sender: UIButton) {
 		let alertController = UIAlertController(title: "Bestellung hinzufügen", message: "Geben Sie Name und Preiss des Artikels ein.", preferredStyle: UIAlertControllerStyle.alert)
@@ -87,9 +77,13 @@ class GuestDetailViewController: UIViewController {
 
 extension GuestDetailViewController: UITextFieldDelegate {
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		textField.resignFirstResponder()
+		return true
+	}
+	
+	func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
 		if let text = textField.text {
 			customer.name = text
-			textField.resignFirstResponder()
 		}
 		return true
 	}

@@ -10,19 +10,11 @@ import UIKit
 
 
 class GuestTableViewController: UITableViewController {
-	var table: Table!
+	var table: Table = Table()
 	@IBOutlet weak var totalAmoundLabel: UILabel!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		// Uncomment the following line to preserve selection between presentations
-		//         self.clearsSelectionOnViewWillAppear = false
-		
-		// Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-		//        self.navigationItem.leftBarButtonItem = self.editButtonItem
-		let rootTabBarViewController = self.tabBarController as! RootTabBarViewController
-		self.table = rootTabBarViewController.table
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -59,15 +51,15 @@ class GuestTableViewController: UITableViewController {
 		return cell
 	}
 	
-    @IBAction func newCustomer(_ sender: UIBarButtonItem) {
-        let count = table.customers.count
-        let customer = Customer(name: "Gast \(count + 1)")
-        table.addCustomer(customer)
-        let indexPath = IndexPath(row: count, section: 0)
-        tableView.beginUpdates()
-        tableView.insertRows(at: [indexPath], with: .automatic)
-        tableView.endUpdates()
-    }
+	@IBAction func newCustomer(_ sender: UIBarButtonItem) {
+		let count = table.customers.count
+		let customer = Customer(name: "Gast \(count + 1)")
+		table.addCustomer(customer)
+		let indexPath = IndexPath(row: count, section: 0)
+		tableView.beginUpdates()
+		tableView.insertRows(at: [indexPath], with: .automatic)
+		tableView.endUpdates()
+	}
 	
 	// Override to support editing the table view.
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -84,11 +76,15 @@ class GuestTableViewController: UITableViewController {
 	
 	// In a storyboard-based application, you will often want to do a little preparation before navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		let destination = segue.destination as! GuestDetailViewController
 		if segue.identifier == "ShowDetailSegue" {
+			let guestDetailViewController = segue.destination as! GuestDetailViewController
 			if let indexPath = tableView.indexPathForSelectedRow {
-				destination.customer = table.customers[indexPath.row]
+				guestDetailViewController.customer = table.customers[indexPath.row]
 			}
+		}
+		if segue.identifier == "ShowBillSegue" {
+			let billViewController = segue.destination as! BillViewController
+			billViewController.table = table
 		}
 	}
 	

@@ -11,7 +11,7 @@ import Foundation
 class Customer {
 	var name: String
 	var orders: [Order] = []
-	var tip = Tip.ten
+	var tip: Tip = .twenty
 	var bill: Bill {
 		let bill = Bill(orders: orders, tip: tip)
 		return bill

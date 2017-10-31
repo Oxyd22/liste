@@ -9,21 +9,24 @@
 import Foundation
 
 enum Tip: Int {
-	case five = 0
-	case ten
+	case ten = 0
 	case fifteen
 	case twenty
+	case twentyfive
+	case thirty
 	
 	var doubleValue: Double {
 		switch self {
-		case .five:
-			return 0.05
 		case .ten:
 			return 0.1
 		case .fifteen:
 			return 0.15
 		case .twenty:
-			return 0.20
+			return 0.2
+		case .twentyfive:
+			return 0.25
+		case .thirty:
+			return 0.3
 		}
 	}
 }

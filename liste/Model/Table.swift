@@ -9,17 +9,14 @@
 import Foundation
 
 class Table {
-	var customers: [Customer]
+	var customers: [Customer] = []
+	var tip = Tip.twenty
 	var bill: Bill {
 		let orders: [Order] = customers.flatMap { customer in
 			customer.orders
 		}
-		let bill = Bill(orders: orders, tip: Tip.five)
+		let bill = Bill(orders: orders, tip: tip)
 		return bill
-	}
-	
-	init() {
-		self.customers = []
 	}
 	
 	func addCustomer(name: String) {

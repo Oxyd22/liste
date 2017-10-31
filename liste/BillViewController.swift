@@ -9,18 +9,29 @@
 import UIKit
 
 class BillViewController: UIViewController {
-	var tisch: Table!
+	var table: Table!
 	@IBOutlet weak var billTextView: UITextView!
+	@IBOutlet weak var tipSegmentControl: UISegmentedControl!
+	
+	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		let rootTabBarViewController = self.tabBarController as! RootTabBarViewController
-		self.tisch = rootTabBarViewController.table
+		tipSegmentControl.selectedSegmentIndex = table.tip.rawValue
+		displayBill(tip: table.tip)
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
-		var bill = tisch.bill.billing()
-		for gast in tisch.customers {
+	@IBAction func tipValueChanged(_ sender: UISegmentedControl) {
+		if let tip = Tip(rawValue: sender.selectedSegmentIndex) {
+			table.tip = tip
+			displayBill(tip: tip)
+		}
+	}
+	
+	func displayBill(tip: Tip) {
+		var bill = table.bill.billing(counted: true)
+		for gast in table.customers {
+			gast.tip = table.tip
 			let text = gast.bill.billing()
 			bill.append(text)
 		}
