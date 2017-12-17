@@ -20,17 +20,28 @@ public struct TableGenerator {
 		internalTable.append(columnValues)
 	}
 	
-	func findMaxStringLengt() -> Int {
-		let flatArray = internalTable.flatMap { (element) -> [(String, Alignment)] in
-			if element.count == 1 {
-				return [("", .left)]
+	public func transpose<T>(input: [[T]]) -> [[T]] {
+		if input.isEmpty { return [[T]]() }
+		let count = input[0].count
+		var transposed = [[T]](repeating: [T](), count: count)
+		for outer in input {
+			if outer.count < 2 { continue }
+			for (index, inner) in outer.enumerated() {
+				transposed[index].append(inner)
 			}
-			return element
 		}
-		let maxElement = flatArray.max { (a, b) -> Bool in
-			a.0.count < b.0.count
+		return transposed
+	}
+	
+	func findMaxColumnWidth() -> [Int] {
+		let transposed = transpose(input: internalTable)
+		let maxColumnWidth = transposed.map { (column) -> Int in
+			let maxElement = column.max { (a, b) -> Bool in
+				a.0.count < b.0.count
+			}
+			return (maxElement?.0.count ?? 1) + 1
 		}
-		return (maxElement?.0.count ?? 1) + 1
+		return maxColumnWidth
 	}
 	
 	func spacePadding(_ text: String, toLength: Int, alignment: Alignment) -> String {
@@ -38,39 +49,43 @@ public struct TableGenerator {
 		case .left:
 			return text.padding(toLength: toLength, withPad: " ", startingAt: 0)
 		case .rigth:
-			let reverseText = String(text.characters.reversed())
+			let reverseText = String(text.reversed())
 			let reversePadding = reverseText.padding(toLength: toLength, withPad: " ", startingAt: 0)
-			return String(reversePadding.characters.reversed())
+			return String(reversePadding.reversed())
 		}
 	}
 	
-	func tableRowLine(maxStringLengt: Int, tableLength: Int) -> String {
-		let rowLine = String(repeating: "-", count: maxStringLengt)
-		return "|\(rowLine.padding(toLength: tableLength, withPad: "|\(rowLine)", startingAt: 0))|\n"
+	func tableRowLine(maxColumnWidth: [Int]) -> String {
+		let lineArray = maxColumnWidth.map { (width) -> String in
+			return String(repeating: "-", count: width)
+		}
+		let line = lineArray.joined(separator: "|")
+		return "|\(line)|"
 	}
 	
 	public func drawSpreadsheet() -> String {
 		var spreadsheet = ""
-		let maxStringLength = findMaxStringLengt()
-		let columns = internalTable.first?.count ?? 1
-		let tableLength = maxStringLength *  columns + columns - 1
+		let maxColumnWidth = findMaxColumnWidth()
+		let columnsCount = maxColumnWidth.count
+		let allColumnsWidth = maxColumnWidth.reduce(0) {$0 + $1}
+		let tableLength = allColumnsWidth + columnsCount - 1
 		let tableBorderLine: String = "+\("".padding(toLength: tableLength, withPad: "-", startingAt: 0))+\n"
 		
 		spreadsheet.append(tableBorderLine)
 		for row in internalTable {
 			if row.first?.0 == "-" {
-				spreadsheet.append(tableRowLine(maxStringLengt: maxStringLength, tableLength: tableLength))
-				continue
-			}
-			if row.count == 1 {
-				spreadsheet.append("|")
-				spreadsheet.append(spacePadding(row.first!.0, toLength: tableLength, alignment: row.first!.1))
-				spreadsheet.append("|")
+				spreadsheet.append(tableRowLine(maxColumnWidth: maxColumnWidth))
 			} else {
-				spreadsheet.append("|")
-				for column in row {
-					spreadsheet.append(spacePadding(column.0, toLength: maxStringLength, alignment: column.1))
+				if row.count == 1 {
 					spreadsheet.append("|")
+					spreadsheet.append(spacePadding(row.first!.0, toLength: tableLength, alignment: row.first!.1))
+					spreadsheet.append("|")
+				} else {
+					spreadsheet.append("|")
+					for (index, column) in row.enumerated() {
+						spreadsheet.append(spacePadding(column.0, toLength: maxColumnWidth[index], alignment: column.1))
+						spreadsheet.append("|")
+					}
 				}
 			}
 			spreadsheet.append("\n")
@@ -79,3 +94,5 @@ public struct TableGenerator {
 		return spreadsheet
 	}
 }
+
+

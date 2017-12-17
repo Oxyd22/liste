@@ -42,6 +42,7 @@ struct Bill {
 		return array
 	}
 	
+    //TODO: Move to ViewController
 	func billing(counted: Bool = false) -> String {
 		let totalAmound = "Rechnungsbetrag: \(CurrencyFormater.getCurrencyString(number: self.totalAmount()))"
 		let tipAmound = "\(CurrencyFormater.getPercentString(number: self.tip.doubleValue)) Trinkgeld: \(CurrencyFormater.getCurrencyString(number: self.tipAmound()))"

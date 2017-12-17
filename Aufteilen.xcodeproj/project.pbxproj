@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5101FD4C1FB7857E00768FB4 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5101FD4B1FB7857E00768FB4 /* OrderTableViewCell.swift */; };
+		5101FD541FB7993900768FB4 /* AufteilenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5101FD531FB7993900768FB4 /* AufteilenTests.swift */; };
 		B7622D151F99FF5800284B3C /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D141F99FF5800284B3C /* Customer.swift */; };
 		B7622D171F9A034300284B3C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D161F9A034300284B3C /* Order.swift */; };
 		B7622D191F9A051D00284B3C /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7622D181F9A051D00284B3C /* OrderItem.swift */; };
@@ -24,7 +26,21 @@
 		CDE987F81DDF3729000790F2 /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE987F71DDF3729000790F2 /* BillViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5101FD561FB7993900768FB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDA49C0F1D9A524700B5EAFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDA49C161D9A524700B5EAFC;
+			remoteInfo = Aufteilen;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		5101FD4B1FB7857E00768FB4 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		5101FD511FB7993900768FB4 /* AufteilenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AufteilenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5101FD531FB7993900768FB4 /* AufteilenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AufteilenTests.swift; sourceTree = "<group>"; };
+		5101FD551FB7993900768FB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7622D141F99FF5800284B3C /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		B7622D161F9A034300284B3C /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		B7622D181F9A051D00284B3C /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
@@ -45,6 +61,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5101FD4E1FB7993900768FB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CDA49C141D9A524700B5EAFC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -55,6 +78,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5101FD521FB7993900768FB4 /* AufteilenTests */ = {
+			isa = PBXGroup;
+			children = (
+				5101FD531FB7993900768FB4 /* AufteilenTests.swift */,
+				5101FD551FB7993900768FB4 /* Info.plist */,
+			);
+			path = AufteilenTests;
+			sourceTree = "<group>";
+		};
 		B7622D111F99FB8000284B3C /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				CDA49C191D9A524700B5EAFC /* liste */,
+				5101FD521FB7993900768FB4 /* AufteilenTests */,
 				CDA49C181D9A524700B5EAFC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				CDA49C171D9A524700B5EAFC /* Aufteilen.app */,
+				5101FD511FB7993900768FB4 /* AufteilenTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +127,7 @@
 				B7622D111F99FB8000284B3C /* Model */,
 				CD0CF34F1D9AC7380086F6D6 /* GuestTableViewController.swift */,
 				CD234D0D1DE307FF00A13523 /* GuestDetailViewController.swift */,
+				5101FD4B1FB7857E00768FB4 /* OrderTableViewCell.swift */,
 				CDE987F71DDF3729000790F2 /* BillViewController.swift */,
 				CDA49C201D9A524700B5EAFC /* Main.storyboard */,
 				CDA49C231D9A524700B5EAFC /* Assets.xcassets */,
@@ -105,6 +140,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5101FD501FB7993900768FB4 /* AufteilenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5101FD581FB7993900768FB4 /* Build configuration list for PBXNativeTarget "AufteilenTests" */;
+			buildPhases = (
+				5101FD4D1FB7993900768FB4 /* Sources */,
+				5101FD4E1FB7993900768FB4 /* Frameworks */,
+				5101FD4F1FB7993900768FB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5101FD571FB7993900768FB4 /* PBXTargetDependency */,
+			);
+			name = AufteilenTests;
+			productName = AufteilenTests;
+			productReference = 5101FD511FB7993900768FB4 /* AufteilenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CDA49C161D9A524700B5EAFC /* Aufteilen */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDA49C2B1D9A524700B5EAFC /* Build configuration list for PBXNativeTarget "Aufteilen" */;
@@ -128,10 +181,15 @@
 		CDA49C0F1D9A524700B5EAFC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = ddd;
 				TargetAttributes = {
+					5101FD501FB7993900768FB4 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CDA49C161D9A524700B5EAFC;
+					};
 					CDA49C161D9A524700B5EAFC = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = E6NC699W6C;
@@ -154,11 +212,19 @@
 			projectRoot = "";
 			targets = (
 				CDA49C161D9A524700B5EAFC /* Aufteilen */,
+				5101FD501FB7993900768FB4 /* AufteilenTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5101FD4F1FB7993900768FB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CDA49C151D9A524700B5EAFC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -172,6 +238,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5101FD4D1FB7993900768FB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5101FD541FB7993900768FB4 /* AufteilenTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CDA49C131D9A524700B5EAFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -188,10 +262,19 @@
 				CD93F09A1DE59A34001328E1 /* CurrencyFormater.swift in Sources */,
 				B7622D171F9A034300284B3C /* Order.swift in Sources */,
 				CDE987F81DDF3729000790F2 /* BillViewController.swift in Sources */,
+				5101FD4C1FB7857E00768FB4 /* OrderTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5101FD571FB7993900768FB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDA49C161D9A524700B5EAFC /* Aufteilen */;
+			targetProxy = 5101FD561FB7993900768FB4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CDA49C201D9A524700B5EAFC /* Main.storyboard */ = {
@@ -213,6 +296,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5101FD591FB7993900768FB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AufteilenTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.jesaja.AufteilenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aufteilen.app/Aufteilen";
+			};
+			name = Debug;
+		};
+		5101FD5A1FB7993900768FB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AufteilenTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.jesaja.AufteilenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aufteilen.app/Aufteilen";
+			};
+			name = Release;
+		};
 		CDA49C291D9A524700B5EAFC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -328,7 +453,7 @@
 				INFOPLIST_FILE = liste/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.solutio.liste;
+				PRODUCT_BUNDLE_IDENTIFIER = de.jesaja.liste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -346,7 +471,7 @@
 				INFOPLIST_FILE = liste/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.solutio.liste;
+				PRODUCT_BUNDLE_IDENTIFIER = de.jesaja.liste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -357,6 +482,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5101FD581FB7993900768FB4 /* Build configuration list for PBXNativeTarget "AufteilenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5101FD591FB7993900768FB4 /* Debug */,
+				5101FD5A1FB7993900768FB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CDA49C121D9A524700B5EAFC /* Build configuration list for PBXProject "Aufteilen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

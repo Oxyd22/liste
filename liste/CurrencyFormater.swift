@@ -21,13 +21,13 @@ struct CurrencyFormater {
         return formattedString!
     }
     
-    static func getDoubleValue(currencyString: String) -> Double {
+    static func getDoubleValue(currencyString: String) -> Double? {
         let formatter = NumberFormatter()
         formatter.locale = NSLocale.current
-        formatter.numberStyle = .decimal
+        formatter.numberStyle = .currency
         formatter.maximumFractionDigits = 2
         guard let number = formatter.number(from: currencyString) else {
-            return 0
+            return nil
         }
         return number.doubleValue
     }

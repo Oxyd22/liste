@@ -8,7 +8,11 @@
 
 import UIKit
 
-class GuestDetailViewController: UIViewController {
+protocol Waiters {
+    func newOrderForGuest(name: String?, price: String?)
+}
+
+class GuestDetailViewController: UIViewController, Waiters {
 	var customer: Customer!
 	@IBOutlet var tableView: UITableView!
 	@IBOutlet weak var nameTextField: UITextField!
@@ -33,11 +37,18 @@ class GuestDetailViewController: UIViewController {
 		
 	}
 	
-	func newOrderForGuest(name: String, price: String) {
-		guard name != "", price != "" else {
-			return
-		}
-		let priceNumber = CurrencyFormater.getDoubleValue(currencyString: price)
+	func newOrderForGuest(name: String?, price: String?) {
+        guard let name = name, let price = price, name != "", price != "" else {
+            return
+        }
+        let priceNumber: Double
+        if let price = Double(price) {
+            priceNumber = price
+        } else if let price = CurrencyFormater.getDoubleValue(currencyString: price) {
+            priceNumber = price
+        } else {
+            return
+        }
 		customer.order(name: name, price: priceNumber)
 		displaySummForAllOrders()
 		let count = customer.orders.count - 1
@@ -46,8 +57,8 @@ class GuestDetailViewController: UIViewController {
 		tableView.insertRows(at: [indexPath], with: .automatic)
 		tableView.endUpdates()
 	}
-	
-	@IBAction func addOrderButton(_ sender: UIButton) {
+    
+    @IBAction func addOrderButton(_ sender: UIButton) {
 		let alertController = UIAlertController(title: "Bestellung hinzufügen", message: "Geben Sie Name und Preiss des Artikels ein.", preferredStyle: UIAlertControllerStyle.alert)
 		alertController.addTextField { (textField) in
 			textField.placeholder = "Name"
@@ -102,11 +113,15 @@ extension GuestDetailViewController: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "guestDetailIdentifier", for: indexPath)
+        let cellIdentifier = "guestDetailIdentifier"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? OrderTableViewCell else {
+            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+        }
+        cell.delegate = self
 		let name = customer.orders[indexPath.row].item.name
 		let price = customer.orders[indexPath.row].item.price
-		cell.textLabel?.text = name
-		cell.detailTextLabel?.text = CurrencyFormater.getCurrencyString(number: price)
+		cell.name.text = name
+		cell.price.text = CurrencyFormater.getCurrencyString(number: price)
 		return cell
 	}
 }
