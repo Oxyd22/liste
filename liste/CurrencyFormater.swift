@@ -8,10 +8,9 @@
 
 import Foundation
 
-
 struct CurrencyFormater {
     private init() {}
-    
+
     static func getCurrencyString(number: Double) -> String {
         let formatter = NumberFormatter()
         formatter.locale = NSLocale.current
@@ -20,7 +19,7 @@ struct CurrencyFormater {
         let formattedString = formatter.string(for: number)
         return formattedString!
     }
-    
+
     static func getDoubleValue(currencyString: String) -> Double? {
         let formatter = NumberFormatter()
         formatter.locale = NSLocale.current

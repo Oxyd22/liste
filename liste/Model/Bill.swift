@@ -11,27 +11,27 @@ import Foundation
 struct Bill {
 	let orders: [Order]
 	let tip: Tip
-	
+
 	func totalAmount() -> Double {
 		let total = orders.reduce(0.0) { (sum, order) -> Double in
 			sum + order.item.price
 		}
 		return total
 	}
-	
+
 	func tipAmound() -> Double {
 		let total = self.totalAmount()
 		let tip = total * self.tip.doubleValue
 		return tip
 	}
-	
+
 	func finalAmound() -> Double {
 		let total = self.totalAmount()
 		let tip = self.tipAmound()
 		let final = total + tip
 		return final.rounded(.up)
 	}
-	
+
 	func countOrders() -> [(element: Order, count: Int)] {
 		let countedSet = NSCountedSet(array: orders)
 		var array: [(element: Order, count: Int)] = []
@@ -41,7 +41,7 @@ struct Bill {
 		}
 		return array
 	}
-	
+
     //TODO: Move to ViewController
 	func billing(counted: Bool = false) -> String {
 		let totalAmound = "Rechnungsbetrag: \(CurrencyFormater.getCurrencyString(number: self.totalAmount()))"
@@ -74,5 +74,5 @@ struct Bill {
 		tableGenerator.addTableRow(columnValues: [(finalAmound, .rigth)])
 		return tableGenerator.drawSpreadsheet()
 	}
-	
+
 }

@@ -14,7 +14,7 @@ enum Tip: Int {
 	case twenty
 	case twentyfive
 	case thirty
-	
+
 	var doubleValue: Double {
 		switch self {
 		case .ten:
@@ -30,4 +30,3 @@ enum Tip: Int {
 		}
 	}
 }
-

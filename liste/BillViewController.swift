@@ -13,22 +13,20 @@ class BillViewController: UIViewController {
 	var billText = ""
 	@IBOutlet weak var billTextView: UITextView!
 	@IBOutlet weak var tipSegmentControl: UISegmentedControl!
-	
-	
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		tipSegmentControl.selectedSegmentIndex = table.tip.rawValue
 		displayBill(tip: table.tip)
 	}
-	
+
 	@IBAction func tipValueChanged(_ sender: UISegmentedControl) {
 		if let tip = Tip(rawValue: sender.selectedSegmentIndex) {
 			table.tip = tip
 			displayBill(tip: tip)
 		}
 	}
-	
+
 	func displayBill(tip: Tip) {
 		var bill = table.bill.billing(counted: true)
 		for gast in table.customers {
@@ -39,7 +37,7 @@ class BillViewController: UIViewController {
 		billText = bill
 		billTextView.text = bill
 	}
-	
+
 	@IBAction func shareBill(_ sender: UIBarButtonItem) {
 		let activityViewController = UIActivityViewController(
 			activityItems: ["Check out this.", billText], applicationActivities: nil)
@@ -48,15 +46,12 @@ class BillViewController: UIViewController {
 		}
 		present(activityViewController, animated: true, completion: nil)
 	}
-	
-	
-	
+
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
-	
+
 	/*
 	// MARK: - Navigation
 	
@@ -66,5 +61,5 @@ class BillViewController: UIViewController {
 	// Pass the selected object to the new view controller.
 	}
 	*/
-	
+
 }

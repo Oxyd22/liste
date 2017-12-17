@@ -6,20 +6,20 @@ public enum Alignment {
 
 public struct TableGenerator {
 	var internalTable: [[(String, Alignment)]] = []
-	
+
 	public init() {}
-	
+
 	public mutating func addTableRow(columnValues: [String]) {
 		let table = columnValues.map { (value) -> (String, Alignment) in
 			return (value, .left)
 		}
 		internalTable.append(table)
 	}
-	
+
 	public mutating func addTableRow(columnValues: [(String, Alignment)]) {
 		internalTable.append(columnValues)
 	}
-	
+
 	public func transpose<T>(input: [[T]]) -> [[T]] {
 		if input.isEmpty { return [[T]]() }
 		let count = input[0].count
@@ -32,7 +32,7 @@ public struct TableGenerator {
 		}
 		return transposed
 	}
-	
+
 	func findMaxColumnWidth() -> [Int] {
 		let transposed = transpose(input: internalTable)
 		let maxColumnWidth = transposed.map { (column) -> Int in
@@ -43,7 +43,7 @@ public struct TableGenerator {
 		}
 		return maxColumnWidth
 	}
-	
+
 	func spacePadding(_ text: String, toLength: Int, alignment: Alignment) -> String {
 		switch alignment {
 		case .left:
@@ -54,7 +54,7 @@ public struct TableGenerator {
 			return String(reversePadding.reversed())
 		}
 	}
-	
+
 	func tableRowLine(maxColumnWidth: [Int]) -> String {
 		let lineArray = maxColumnWidth.map { (width) -> String in
 			return String(repeating: "-", count: width)
@@ -62,7 +62,7 @@ public struct TableGenerator {
 		let line = lineArray.joined(separator: "|")
 		return "|\(line)|"
 	}
-	
+
 	public func drawSpreadsheet() -> String {
 		var spreadsheet = ""
 		let maxColumnWidth = findMaxColumnWidth()
@@ -70,7 +70,7 @@ public struct TableGenerator {
 		let allColumnsWidth = maxColumnWidth.reduce(0) {$0 + $1}
 		let tableLength = allColumnsWidth + columnsCount - 1
 		let tableBorderLine: String = "+\("".padding(toLength: tableLength, withPad: "-", startingAt: 0))+\n"
-		
+
 		spreadsheet.append(tableBorderLine)
 		for row in internalTable {
 			if row.first?.0 == "-" {
@@ -94,5 +94,3 @@ public struct TableGenerator {
 		return spreadsheet
 	}
 }
-
-

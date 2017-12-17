@@ -18,12 +18,12 @@ class Table {
 		let bill = Bill(orders: orders, tip: tip)
 		return bill
 	}
-	
+
 	func addCustomer(name: String) {
 		let customer = Customer(name: name)
 		self.customers.append(customer)
 	}
-	
+
 	func addCustomer(_ customer: Customer) {
 		self.customers.append(customer)
 	}

@@ -16,11 +16,11 @@ class Customer {
 		let bill = Bill(orders: orders, tip: tip)
 		return bill
 	}
-	
+
 	init(name: String) {
 		self.name = name
 	}
-	
+
 	func order(name: String, price: Double) {
 		let orderItem = OrderItem(name: name, price: price)
 		let order = Order(customer: self, item: orderItem)

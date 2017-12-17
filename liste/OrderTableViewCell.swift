@@ -12,12 +12,12 @@ class OrderTableViewCell: UITableViewCell {
     var delegate: Waiters!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var price: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    
+
     @IBAction func duplicateOrderButton(_ sender: UIButton) {
         delegate.newOrderForGuest(name: name.text, price: price.text)
     }

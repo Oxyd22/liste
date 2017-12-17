@@ -17,26 +17,24 @@ class GuestDetailViewController: UIViewController, Waiters {
 	@IBOutlet var tableView: UITableView!
 	@IBOutlet weak var nameTextField: UITextField!
 	@IBOutlet weak var totalAmountLabel: UILabel!
-	
-	
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		let name = customer.name
 		nameTextField.text = name
 		displaySummForAllOrders()
 	}
-	
+
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 	}
-	
+
 	func displaySummForAllOrders() {
 		let totalAmount = customer.bill.totalAmount()
 		totalAmountLabel.text = CurrencyFormater.getCurrencyString(number: totalAmount)
-		
+
 	}
-	
+
 	func newOrderForGuest(name: String?, price: String?) {
         guard let name = name, let price = price, name != "", price != "" else {
             return
@@ -57,7 +55,7 @@ class GuestDetailViewController: UIViewController, Waiters {
 		tableView.insertRows(at: [indexPath], with: .automatic)
 		tableView.endUpdates()
 	}
-    
+
     @IBAction func addOrderButton(_ sender: UIButton) {
 		let alertController = UIAlertController(title: "Bestellung hinzufügen", message: "Geben Sie Name und Preiss des Artikels ein.", preferredStyle: UIAlertControllerStyle.alert)
 		alertController.addTextField { (textField) in
@@ -75,15 +73,15 @@ class GuestDetailViewController: UIViewController, Waiters {
 		alertController.addAction(okAction)
 		self.present(alertController, animated: true)
 	}
-	
+
 	// MARK: - Navigation
 	// In a storyboard-based application, you will often want to do a little preparation before navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		// Get the new view controller using segue.destinationViewController.
 		// Pass the selected object to the new view controller.
-		
+
 	}
-	
+
 }
 
 extension GuestDetailViewController: UITextFieldDelegate {
@@ -91,7 +89,7 @@ extension GuestDetailViewController: UITextFieldDelegate {
 		textField.resignFirstResponder()
 		return true
 	}
-	
+
 	func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
 		if let text = textField.text {
 			customer.name = text
@@ -104,14 +102,14 @@ extension GuestDetailViewController: UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
-	
+
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if let guest = customer {
 			return guest.orders.count
 		}
 		return 0
 	}
-	
+
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "guestDetailIdentifier"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? OrderTableViewCell else {
@@ -137,4 +135,3 @@ extension GuestDetailViewController: UITableViewDelegate {
 		}
 	}
 }
-
