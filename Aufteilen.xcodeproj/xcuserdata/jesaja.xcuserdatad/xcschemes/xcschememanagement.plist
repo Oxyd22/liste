@@ -4,10 +4,23 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Aufteilen.xcscheme</key>
+		<key>Aufteilen.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>5101FD501FB7993900768FB4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CDA49C161D9A524700B5EAFC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
